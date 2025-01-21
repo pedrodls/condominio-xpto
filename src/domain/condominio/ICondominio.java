@@ -1,7 +1,7 @@
 package domain.condominio;
 
-import java.util.ArrayList;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 import domain.fracao.IFracao;
 
@@ -11,23 +11,25 @@ public interface ICondominio {
 
     public void setMorada(String morada);
 
-    public int getNumeroFracoes();
+    public double getDispesaGeral();
 
-    public float getDispesaGeral();
+    public void setDispesaGeral(double dispesaGeral);
 
-    public void setDispesaGeral(float dispesaGeral);
+    public double getDispesaComElevador();
 
-    public float getDispesaComElevador();
-
-    public void setDispesaComElevador(float dispesaComElevador);
+    public void setDispesaComElevador(double dispesaComElevador);
 
     public void listarFracoes();
 
-    public void setFracoes(ArrayList<IFracao> fracoes);
+    //public void setFracoes(ArrayList<IFracao> fracoes);
 
-    public Date getDataConstrucao();
+    //public int getNumeroFracoes();
+    
+    //public ArrayList<IFracao> getFracoes();
 
-    public void setDataConstrucao(Date dataConstrucao);
+    public LocalDate getDataConstrucao();
+
+    public void setDataConstrucao(LocalDate dataConstrucao);
 
     public void addFracao(IFracao fracao);
 
@@ -37,7 +39,7 @@ public interface ICondominio {
 
     public boolean verificarEquilibrio();
 
-    public float somaPercentagemFracoes();
+    public double somaPercentagemFracoes();
 
-    public float somaQuotaMensal();
+    public double somaQuotaMensal();
 }

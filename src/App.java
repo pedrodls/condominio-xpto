@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 
+import application.condominio.CondominioDTO;
+import application.condominio.CondominioService;
+import domain.condominio.Condominio;
+import infrastructure.repositorios.CondominioRepositorio;
+
 /**
  *
  * @author dev
@@ -13,7 +18,19 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO Teste do CRUD do condominio
+
+        try {
+            CondominioDTO dadosCondominio = new CondominioDTO("Avenida São José", 2424.0, 432.0, "02/10/2020");
+
+            CondominioService cs = new CondominioService(new CondominioRepositorio());
+
+            Condominio novoCondominio = cs.criarCondominio(dadosCondominio);
+
+            System.out.println(novoCondominio.getId());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
-    
+
 }

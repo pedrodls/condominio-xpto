@@ -1,7 +1,7 @@
 package domain.condominio;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 import domain.fracao.IFracao;
 import domain.helpers.Entidade;
@@ -9,20 +9,23 @@ import domain.helpers.Entidade;
 public class Condominio extends Entidade implements ICondominio {
 
     private String morada;
-    private float dispesaGeral;
-    private Date dataConstrucao;
-    private float dispesaComElevador;
-    private ArrayList<IFracao> fracoes;
-    private static int numeroFracoes = 0;
+    private double dispesaGeral;
+    private LocalDate dataConstrucao;
+    private double dispesaComElevador;
+    // private ArrayList<IFracao> fracoes;
+    // private static int numeroFracoes = 0;
 
-    public Condominio(String morada, float dispesaGeral, float dispesaComElevador,
-            ArrayList<IFracao> fracoes, Date dataConstrucao) {
+     public Condominio() {
+    }
+     
+    public Condominio(String morada, double dispesaGeral, double dispesaComElevador,
+            /* ArrayList<IFracao> fracoes, */ LocalDate dataConstrucao) {
         this.morada = morada;
         this.dispesaGeral = dispesaGeral;
         this.dispesaComElevador = dispesaComElevador;
-        this.fracoes = fracoes;
         this.dataConstrucao = dataConstrucao;
-        Condominio.numeroFracoes = fracoes.size();
+        // this.fracoes = fracoes;
+        // Condominio.numeroFracoes = fracoes.size();
     }
 
     public String getMorada() {
@@ -33,39 +36,43 @@ public class Condominio extends Entidade implements ICondominio {
         this.morada = morada;
     }
 
-    public int getNumeroFracoes() {
-        return numeroFracoes;
-    }
-
-    public float getDispesaGeral() {
+    public double getDispesaGeral() {
         return dispesaGeral;
     }
 
-    public void setDispesaGeral(float dispesaGeral) {
+    public void setDispesaGeral(double dispesaGeral) {
         this.dispesaGeral = dispesaGeral;
     }
 
-    public float getDispesaComElevador() {
+    public double getDispesaComElevador() {
         return dispesaComElevador;
     }
 
-    public void setDispesaComElevador(float dispesaComElevador) {
+    public void setDispesaComElevador(double dispesaComElevador) {
         this.dispesaComElevador = dispesaComElevador;
     }
 
-    public void setFracoes(ArrayList<IFracao> fracoes) {
-        this.fracoes = fracoes;
-    }
+    /*
+     * public void setFracoes(ArrayList<IFracao> fracoes) {
+     * this.fracoes = fracoes;
+     * }
+     * 
+     * public ArrayList<IFracao> getFracoes() {
+     * return this.fracoes;
+     * }
+     */
 
-    public ArrayList<IFracao> getFracoes() {
-        return this.fracoes;
-    }
+    /*
+     * public int getNumeroFracoes() {
+     * return numeroFracoes;
+     * }
+     */
 
-    public Date getDataConstrucao() {
+    public LocalDate getDataConstrucao() {
         return dataConstrucao;
     }
 
-    public void setDataConstrucao(Date dataConstrucao) {
+    public void setDataConstrucao(LocalDate dataConstrucao) {
         this.dataConstrucao = dataConstrucao;
     }
 
@@ -88,11 +95,11 @@ public class Condominio extends Entidade implements ICondominio {
         return false;
     }
 
-    public float somaPercentagemFracoes() {
+    public double somaPercentagemFracoes() {
         return 0;
     }
 
-    public float somaQuotaMensal() {
+    public double somaQuotaMensal() {
         return 0;
     }
 

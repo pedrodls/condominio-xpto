@@ -1,6 +1,9 @@
 package domain.helpers;
 
-public class Id {
+import java.io.Serializable;
+import java.util.UUID;
+
+public class Id implements Serializable {
     private String descricao;
 
     public Id() {
@@ -12,7 +15,7 @@ public class Id {
     }
 
     private void generateId() {
-        this.descricao = (System.currentTimeMillis() + "").substring(4, 7);
+        this.descricao = UUID.randomUUID().toString().substring(4, 8);
     }
 
 }
