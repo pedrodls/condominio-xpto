@@ -1,10 +1,10 @@
-package helpers;
+package utils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class HelperDate {
+public class UtilDate {
 
     // Método para converter string para LocalDate com um formato personalizado
     public static LocalDate stringToLocalDate(String dateString) throws Error {

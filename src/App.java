@@ -22,16 +22,16 @@ public class App {
         // TODO Teste do CRUD do condominio
 
         try {
-            CondominioDTO dadosCondominio = new CondominioDTO("Avenida São José", 2424.0, 432.0, "02/10/2020");
+            //CondominioDTO dadosCondominio = new CondominioDTO("Avenida São José", 2424.0, 432.0, "02/10/2020");
 
             CondominioService cs = new CondominioService(new CondominioRepositorio());
 
-            Condominio novoCondominio = cs.criarCondominio(dadosCondominio);
+            //Condominio novoCondominio = cs.criarCondominio(dadosCondominio);
 
             ArrayList<Condominio> dadosCmd = cs.condominioRepositorio.findAll();
             
             dadosCmd.forEach(action -> {
-                System.out.println(action.getId());
+                System.out.println(action.toString());
             });
             
         } catch (Exception e) {

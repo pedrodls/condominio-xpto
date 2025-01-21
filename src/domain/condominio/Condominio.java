@@ -2,7 +2,6 @@ package domain.condominio;
 
 import java.time.LocalDate;
 
-
 import domain.fracao.IFracao;
 import domain.helpers.Entidade;
 
@@ -15,9 +14,9 @@ public class Condominio extends Entidade implements ICondominio {
     // private ArrayList<IFracao> fracoes;
     // private static int numeroFracoes = 0;
 
-     public Condominio() {
+    public Condominio() {
     }
-     
+
     public Condominio(String morada, double dispesaGeral, double dispesaComElevador,
             /* ArrayList<IFracao> fracoes, */ LocalDate dataConstrucao) {
         this.morada = morada;
@@ -103,4 +102,14 @@ public class Condominio extends Entidade implements ICondominio {
         return 0;
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString() + 
+                "\tmorada: " + this.getMorada() + "\n" +
+                "\tdispesaGeral: " + this.getDispesaGeral() + "\n" +
+                "\tdispesaComElevador: " + this.getDispesaComElevador() + "\n" +
+                "\tdataDeConstrucao: " + this.getDataConstrucao() + "\n" +
+                "}";
+    }
 }

@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 import application.condominio.CondominioDTO;
 import domain.condominio.Condominio;
-import helpers.HelperDate;
+import utils.UtilDate;
 import java.time.LocalDate;
 
 public class CriarCondominioUseCase {
@@ -22,7 +22,7 @@ public class CriarCondominioUseCase {
       try {
 
         this.condominio.setMorada(dados.morada);
-        this.condominio.setDataConstrucao(HelperDate.stringToLocalDate(dados.dataConstrucao));
+        this.condominio.setDataConstrucao(UtilDate.stringToLocalDate(dados.dataConstrucao));
         this.condominio.setDispesaComElevador(dados.dispesaComElevador);
         this.condominio.setDispesaGeral(dados.dispesaGeral);
 

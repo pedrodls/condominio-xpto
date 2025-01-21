@@ -1,7 +1,7 @@
 package infrastructure.repositorios;
 
 import domain.condominio.Condominio;
-import helpers.Constantes;
+import utils.Constantes;
 import infrastructure.entidadePersistente.EntidadePersistente;
 
 public class CondominioRepositorio extends RepositorioBase<Condominio> {

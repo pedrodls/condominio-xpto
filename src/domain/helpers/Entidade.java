@@ -15,4 +15,9 @@ public class Entidade implements Serializable {
         return this.id.getDescricao();
     }
 
+    @Override
+    public String toString() {
+        return "\n{\n\tid: " + this.id.getDescricao() + "\n";
+    }
+
 }

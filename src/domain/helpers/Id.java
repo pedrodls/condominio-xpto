@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public class Id implements Serializable {
     private String descricao;
+    private static final long serialVersionUID = 1L;
 
     public Id() {
         this.generateId();
