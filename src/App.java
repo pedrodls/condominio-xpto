@@ -7,6 +7,7 @@ import application.condominio.CondominioDTO;
 import application.condominio.CondominioService;
 import domain.condominio.Condominio;
 import infrastructure.repositorios.CondominioRepositorio;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,7 +28,12 @@ public class App {
 
             Condominio novoCondominio = cs.criarCondominio(dadosCondominio);
 
-            System.out.println(novoCondominio.getId());
+            ArrayList<Condominio> dadosCmd = cs.condominioRepositorio.findAll();
+            
+            dadosCmd.forEach(action -> {
+                System.out.println(action.getId());
+            });
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
