@@ -5,9 +5,9 @@ import domain.proprietario.IProprietario;
 
 public interface IFracao extends IEntidade  {
     
-    public long getArea();
+    public int getArea();
 
-    public void setArea(long area);
+    public void setArea(int area);
 
     public double getPercentagemArea();
 

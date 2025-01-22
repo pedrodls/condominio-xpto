@@ -1,14 +1,17 @@
 package application.fracao.loja;
 
 import application.fracao.FracaoDTO;
+import domain.proprietario.IProprietario;
 
 public class LojaDTO extends FracaoDTO {
     
     public LojaDTO() {
-        super();
+
     }
 
-    public LojaDTO(long area, String localizacao) {
-        super(area, localizacao);
+    public LojaDTO(int area, String localizacao, IProprietario proprietario){
+        this.area = area;
+        this.localizacao = localizacao;
+        this.proprietario = proprietario;
     }
 }

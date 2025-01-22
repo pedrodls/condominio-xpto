@@ -6,13 +6,6 @@ public class CondominioDTO {
     public String dataConstrucao;
     public double despesaComElevador;
 
-    public CondominioDTO() {
-        this.morada = "";
-        this.dataConstrucao = "";
-        this.despesaGeral = -1;
-        this.despesaComElevador = -1;
-    }
-
     public CondominioDTO(String morada, double despesaGeral, double despesaComElevador, String dataConstrucao) {
         this.morada = morada;
         this.despesaGeral = despesaGeral;

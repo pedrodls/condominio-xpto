@@ -4,25 +4,15 @@
  */
 package application.fracao;
 
-//import domain.proprietario.IProprietario;
+import domain.proprietario.IProprietario;
 
 /**
  *
  * @author 20220204
  */
-public class FracaoDTO {
-    public long area;
+ public abstract class FracaoDTO {
+    public int area;
     public String localizacao;
-    //public IProprietario proprietario;
-    
-    public FracaoDTO() {
-        this.area = -1;
-        this.localizacao = " ";
-    }
-
-    public FracaoDTO(long area, String localizacao) {
-        this.area = area;
-        this.localizacao = localizacao;
-    }
+    public IProprietario proprietario;
     
 }

@@ -5,23 +5,23 @@ import domain.proprietario.IProprietario;
 
 public class Fracao extends Entidade implements IFracao {
 
-    protected long area;
+    protected int area;
     protected double percentagemArea;
     protected String localizacao;
     protected IProprietario proprietario;
 
-    public Fracao(long area, String localizacao, IProprietario proprietario) {
+    public Fracao(int area, String localizacao, IProprietario proprietario) {
         this.area = area;
         this.percentagemArea = 0.0;
         this.localizacao = localizacao;
         this.proprietario = proprietario;
     }
 
-    public long getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(long area) {
+    public void setArea(int area) {
         this.area = area;
     }
 
@@ -30,7 +30,8 @@ public class Fracao extends Entidade implements IFracao {
     }
 
     public void setPercentagemArea(double percentagemArea) {
-        this.percentagemArea = percentagemArea;
+        //Uso de Math para arredondar para 3 casas decimais
+        this.percentagemArea = Math.round(percentagemArea * 1000.0) / 1000.0;
     }
 
     public String getLocalizacao() {

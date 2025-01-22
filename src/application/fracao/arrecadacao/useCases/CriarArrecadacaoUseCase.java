@@ -1,6 +1,7 @@
 package application.fracao.arrecadacao.useCases;
 
 import application.fracao.arrecadacao.ArrecadacaoDTO;
+import application.fracao.useCases.CriarFracaoUseCase;
 import domain.fracao.arrecadacao.Arrecadacao;
 
 public class CriarArrecadacaoUseCase {
@@ -9,8 +10,7 @@ public class CriarArrecadacaoUseCase {
     private ArrecadacaoDTO dados;
     
     public CriarArrecadacaoUseCase(ArrecadacaoDTO dados) {
-        this.dados = dados;
-        //this.arrecadacao = new Arrecadacao();
+      ;
     }
     
     public Arrecadacao getArrecadacao() throws RuntimeException {
@@ -20,7 +20,7 @@ public class CriarArrecadacaoUseCase {
           if (dados.area <= 0)
             throw new RuntimeException("A área não pode ser zero ou negativa");
 
-          this.arrecadacao.setId(0);
+          
           //this.arrecadacao = new Loja(dados.area, 0.0, dados.localizacao, );
           //linha acima comentada pq falta o ultimo parametro, o proprietario
 
