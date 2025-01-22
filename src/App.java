@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 
-import application.condominio.CondominioDTO;
-import application.condominio.CondominioService;
-import infrastructure.repositorios.CondominioRepositorio;
+import presentation.MenuGeral;
+import utils.Limpatela;
 
 /**
  *
@@ -19,20 +18,24 @@ public class App {
     public static void main(String[] args) {
         try {
 
-            CondominioDTO dadosCondominio = new CondominioDTO("Avenida São Silvestre", 2424.0, 432.0,
-                    "02/10/2020");
+            MenuGeral m = new MenuGeral();
 
-            CondominioService cs = new CondominioService(new CondominioRepositorio());
+            m.validarOpcao();
 
-            //cs.criarCondominio(dadosCondominio);
+            // CondominioDTO dadosCondominio = new CondominioDTO("Avenida São Silvestre",
+            // 2424.0, 432.0,"02/10/2020");
 
-            //System.out.println(cs.buscarCondominio());
+            // CondominioService cs = new CondominioService(new CondominioRepositorio());
 
-            //System.out.println(cs.atualizarCondominio(dadosCondominio));
+            // cs.criarCondominio(dadosCondominio);
 
-            //System.out.println(cs.buscarCondominio());
+            // System.out.println(cs.buscarCondominio());
 
-            //cs.listarFracoes();
+            // System.out.println(cs.atualizarCondominio(dadosCondominio));
+
+            // System.out.println(cs.buscarCondominio());
+
+            // cs.listarFracoes();
 
             // System.out.println(cs.verificarEquilibrio());
 
