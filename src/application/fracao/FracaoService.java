@@ -7,15 +7,13 @@ import domain.fracao.Fracao;
 public class FracaoService {
     private IRepositorio<Fracao> fracaoRepositorio;
 
-    
-
     public FracaoService(IRepositorio<Fracao> fracaoRepositorio) {
         this.fracaoRepositorio = fracaoRepositorio;
     }
 
-    public Fracao buscarFracao() throws RuntimeException {
+    public Fracao buscarFracao(int id) throws RuntimeException {
         try {
-            return this.fracaoRepositorio.findById(0);
+            return this.fracaoRepositorio.findById(id);
         } catch (Exception e) {
             return null;
         }
@@ -24,10 +22,15 @@ public class FracaoService {
     public Fracao criarFracao(FracaoDTO dados) throws RuntimeException {
         try {
 
-            Fracao fracao = this.buscarFracao();
+            // Essa parte desta verificação será feita em outro lugar
 
-            if (fracao != null)
-                throw new RuntimeException("Arrecadação já existe, não pode criar outra vez!");
+            /*
+             * Fracao fracao = this.buscarFracao();
+             * 
+             * if (fracao != null)
+             * throw new
+             * RuntimeException("Arrecadação já existe, não pode criar outra vez!");
+             */
 
             return this.fracaoRepositorio.create(new CriarFracaoUseCase(dados).getFracao());
 

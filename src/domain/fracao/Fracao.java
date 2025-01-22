@@ -10,6 +10,10 @@ public class Fracao extends Entidade implements IFracao {
     protected String localizacao;
     protected IProprietario proprietario;
 
+    public Fracao(){
+
+    }
+    
     public Fracao(int area, String localizacao, IProprietario proprietario) {
         this.area = area;
         this.percentagemArea = 0.0;

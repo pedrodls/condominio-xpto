@@ -7,6 +7,11 @@ public class Arrecadacao extends Fracao {
 
     private boolean portaBlindada;
 
+    //Para criar um objecto Nulo
+    public Arrecadacao() {
+        super();
+    }
+
     public Arrecadacao(int area, String localizacao, IProprietario proprietario,
             boolean portaBlindada) {
 
