@@ -1,0 +1,173 @@
+Applicação
+
+/*
+     * public void listarFracoes() throws RuntimeException {
+     * try {
+     * Condominio condominio = this.buscarCondominio();
+     * 
+     * if (condominio == null) {
+     * System.out.println("Deve criar um condominio antes!");
+     * return;
+     * }
+     * 
+     * //Tem de ser chamado o serviço de Fracoes para listar de acordo aos tipos
+     * 
+     * condominio.listarFracoes();
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * }
+     * 
+     * public void adicionarFracao(Fracao novaFracao) throws RuntimeException {
+     * try {
+     * Condominio condominio = this.buscarCondominio();
+     * condominio.addFracao(novaFracao);
+     * this.condominioRepositorio.update(condominio);
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * }
+     * 
+     * public void eliminarFracao(int id) throws RuntimeException {
+     * try {
+     * Condominio condominio = this.buscarCondominio();
+     * condominio.eliminarFracao(id);
+     * this.condominioRepositorio.update(condominio);
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * }
+     * 
+     * public Fracao procurarFracao(int id) throws RuntimeException {
+     * try {
+     * Condominio condominio = this.buscarCondominio();
+     * return condominio.procurarFracao(id);
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * };
+     * 
+     * public boolean verificarEquilibrio() throws RuntimeException {
+     * try {
+     * Condominio condominio = this.buscarCondominio();
+     * return condominio.verificarEquilibrio();
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * };
+     * 
+     * public double somaPercentagemFracoes() throws RuntimeException {
+     * try {
+     * Condominio condominio = this.buscarCondominio();
+     * return condominio.somaPercentagemFracoes();
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * };
+     * 
+     * public double somaQuotaMensal() throws RuntimeException {
+     * try {
+     * Condominio condominio = this.buscarCondominio();
+     * return condominio.somaQuotaMensal();
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * };
+     */
+
+
+     /*
+     * public boolean verificarEquilibrio() throws RuntimeException {
+     * try {
+     * return somaQuotaMensal() > 99.00;
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * }
+     * 
+     * public double somaPercentagemFracoes() throws RuntimeException {
+     * try {
+     * double soma = 0.0;
+     * 
+     * if (fracoes != null)
+     * for (Fracao fracao : fracoes)
+     * soma += fracao.getPercentagemArea();
+     * 
+     * return soma;
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * }
+     * 
+     * public double somaQuotaMensal() throws RuntimeException {
+     * try {
+     * 
+     * double somaQuotas = 0.0;
+     * 
+     * if (fracoes != null)
+     * for (Fracao fracao : fracoes)
+     * somaQuotas += fracao.getQuotaMensal(this.despesaGeral,
+     * this.despesaComElevador);
+     * 
+     * return somaQuotas;
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * }
+     */
+
+    /*
+     * public void setFracoes(ArrayList<Fracao> fracoes) {
+     * this.fracoes = fracoes;
+     * }
+     * 
+     * public ArrayList<Fracao> getFracoes() {
+     * return this.fracoes;
+     * }
+     * 
+     * public void listarFracoes() {
+     * 
+     * if (this.fracoes == null) {
+     * System.out.println("Lista de Fracoes vazias.");
+     * return;
+     * }
+     * 
+     * System.out.println("\n-- Listagem de Fracoes do Condominio -- \n");
+     * 
+     * this.fracoes.forEach(f -> {
+     * System.out.println(f.toString());
+     * });
+     * 
+     * }
+     * 
+     * public void addFracao(Fracao novaFracao) {
+     * this.fracoes.add(novaFracao);
+     * numeroFracoes++;
+     * areaTotal += novaFracao.getArea();
+     * }
+     * 
+     * public void eliminarFracao(int id) throws RuntimeException {
+     * try {
+     * this.fracoes.remove(this.procurarFracao(id));
+     * System.out.println("Fracao eliminada");
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * 
+     * }
+     * 
+     * public Fracao procurarFracao(int id) throws RuntimeException {
+     * 
+     * try {
+     * Fracao fracaoEncontrado = this.fracoes.get(id);
+     * 
+     * if (fracaoEncontrado == null)
+     * throw new RuntimeException("Fracao não encontrada!");
+     * 
+     * return fracaoEncontrado;
+     * 
+     * } catch (Exception e) {
+     * throw new RuntimeException(e);
+     * }
+     * }
+     */

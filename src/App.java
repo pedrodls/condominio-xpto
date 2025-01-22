@@ -26,9 +26,9 @@ public class App {
 
             //cs.criarCondominio(dadosCondominio);
 
-            System.out.println(cs.buscarCondominio());
+            //System.out.println(cs.buscarCondominio());
 
-            System.out.println(cs.atualizarCondominio(dadosCondominio));
+            //System.out.println(cs.atualizarCondominio(dadosCondominio));
 
             //System.out.println(cs.buscarCondominio());
 

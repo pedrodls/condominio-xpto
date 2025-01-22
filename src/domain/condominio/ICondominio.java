@@ -20,10 +20,6 @@ public interface ICondominio extends IEntidade {
 
     public void setDespesaComElevador(double despesaComElevador);
 
-    public void setFracoes(ArrayList<Fracao> fracoes);
-
-    public ArrayList<Fracao> getFracoes();
-
     public int getNumeroFracoes();
 
     public long getAreaTotal();
@@ -32,17 +28,7 @@ public interface ICondominio extends IEntidade {
 
     public void setDataConstrucao(LocalDate dataConstrucao);
 
-    public void listarFracoes();
+    public void setAreaTotal(long areaTotal);
 
-    public void addFracao(Fracao novaFracao);
-
-    public void eliminarFracao(int id);
-
-    public Fracao procurarFracao(int id);
-
-    public boolean verificarEquilibrio();
-
-    public double somaPercentagemFracoes();
-
-    public double somaQuotaMensal();
+    public void setNumeroFracoes(int numeroFracoes);
 }
