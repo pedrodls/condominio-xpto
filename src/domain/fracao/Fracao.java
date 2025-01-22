@@ -10,9 +10,9 @@ public class Fracao extends Entidade implements IFracao {
     protected String localizacao;
     protected IProprietario proprietario;
 
-    public Fracao(long area, double percentagemArea, String localizacao, IProprietario proprietario) {
+    public Fracao(long area, String localizacao, IProprietario proprietario) {
         this.area = area;
-        this.percentagemArea = percentagemArea;
+        this.percentagemArea = 0.0;
         this.localizacao = localizacao;
         this.proprietario = proprietario;
     }
@@ -53,7 +53,7 @@ public class Fracao extends Entidade implements IFracao {
 
         //Calcular cota mensal, lembrando que existe temos de pegar a Condominio.areaTotal pois é estático
         
-        return 0;
+        return (despesaGeral + despesaComElevador) * this.percentagemArea;
     }
 
     
