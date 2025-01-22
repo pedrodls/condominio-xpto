@@ -2,18 +2,22 @@ package application.condominio;
 
 public class CondominioDTO {
     public String morada;
-    public double dispesaGeral;
+    public double despesaGeral;
     public String dataConstrucao;
-    public double dispesaComElevador;
+    public double despesaComElevador;
 
     public CondominioDTO() {
+        this.morada = "";
+        this.dataConstrucao = "";
+        this.despesaGeral = -1;
+        this.despesaComElevador = -1;
     }
 
-    public CondominioDTO(String morada, double dispesaGeral, double dispesaComElevador, String dataConstrucao) {
+    public CondominioDTO(String morada, double despesaGeral, double despesaComElevador, String dataConstrucao) {
         this.morada = morada;
-        this.dispesaGeral = dispesaGeral;
+        this.despesaGeral = despesaGeral;
         this.dataConstrucao = dataConstrucao;
-        this.dispesaComElevador = dispesaComElevador;
+        this.despesaComElevador = despesaComElevador;
     }
 
 }

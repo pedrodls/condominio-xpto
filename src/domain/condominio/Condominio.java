@@ -1,30 +1,32 @@
 package domain.condominio;
 
 import java.time.LocalDate;
-
-import domain.fracao.IFracao;
+import java.util.ArrayList;
+import domain.fracao.Fracao;
 import domain.helpers.Entidade;
 
 public class Condominio extends Entidade implements ICondominio {
 
     private String morada;
-    private double dispesaGeral;
+    private double despesaGeral;
+    private double despesaComElevador;
     private LocalDate dataConstrucao;
-    private double dispesaComElevador;
-    // private ArrayList<IFracao> fracoes;
-    // private static int numeroFracoes = 0;
+    private ArrayList<Fracao> fracoes;
+
+    private static long areaTotal;
+    private static int numeroFracoes;
 
     public Condominio() {
     }
 
-    public Condominio(String morada, double dispesaGeral, double dispesaComElevador,
-            /* ArrayList<IFracao> fracoes, */ LocalDate dataConstrucao) {
+    public Condominio(String morada, double despesaGeral, double despesaComElevador, LocalDate dataConstrucao) {
         this.morada = morada;
-        this.dispesaGeral = dispesaGeral;
-        this.dispesaComElevador = dispesaComElevador;
+        this.despesaGeral = despesaGeral;
+        this.despesaComElevador = despesaComElevador;
         this.dataConstrucao = dataConstrucao;
-        // this.fracoes = fracoes;
-        // Condominio.numeroFracoes = fracoes.size();
+        this.fracoes = new ArrayList<>();
+        Condominio.areaTotal = 0;
+        Condominio.numeroFracoes = 0;
     }
 
     public String getMorada() {
@@ -35,37 +37,37 @@ public class Condominio extends Entidade implements ICondominio {
         this.morada = morada;
     }
 
-    public double getDispesaGeral() {
-        return dispesaGeral;
+    public double getDespesaGeral() {
+        return this.despesaGeral;
     }
 
-    public void setDispesaGeral(double dispesaGeral) {
-        this.dispesaGeral = dispesaGeral;
+    public void setDespesaGeral(double despesaGeral) {
+        this.despesaGeral = despesaGeral;
     }
 
-    public double getDispesaComElevador() {
-        return dispesaComElevador;
+    public double getDespesaComElevador() {
+        return this.despesaComElevador;
     }
 
-    public void setDispesaComElevador(double dispesaComElevador) {
-        this.dispesaComElevador = dispesaComElevador;
+    public void setDespesaComElevador(double despesaComElevador) {
+        this.despesaComElevador = despesaComElevador;
     }
 
-    /*
-     * public void setFracoes(ArrayList<IFracao> fracoes) {
-     * this.fracoes = fracoes;
-     * }
-     * 
-     * public ArrayList<IFracao> getFracoes() {
-     * return this.fracoes;
-     * }
-     */
+    public void setFracoes(ArrayList<Fracao> fracoes) {
+        this.fracoes = fracoes;
+    }
 
-    /*
-     * public int getNumeroFracoes() {
-     * return numeroFracoes;
-     * }
-     */
+    public ArrayList<Fracao> getFracoes() {
+        return this.fracoes;
+    }
+
+    public int getNumeroFracoes() {
+        return numeroFracoes;
+    }
+
+    public long getAreaTotal() {
+        return areaTotal;
+    }
 
     public LocalDate getDataConstrucao() {
         return dataConstrucao;
@@ -77,39 +79,97 @@ public class Condominio extends Entidade implements ICondominio {
 
     public void listarFracoes() {
 
+        if (this.fracoes == null) {
+            System.out.println("Lista de Fracoes vazias.");
+            return;
+        }
+
+        System.out.println("\n-- Listagem de Fracoes do Condominio -- \n");
+
+        this.fracoes.forEach(f -> {
+            System.out.println(f.toString());
+        });
+
     }
 
-    public void addFracao(IFracao fracao) {
+    public void addFracao(Fracao novaFracao) {
+        this.fracoes.add(novaFracao);
+        numeroFracoes++;
+        areaTotal += novaFracao.getArea();
+    }
+
+    public void eliminarFracao(int id) throws RuntimeException {
+        try {
+            this.fracoes.remove(this.procurarFracao(id));
+            System.out.println("Fracao eliminada");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
-    public void eliminarFracao(String id) {
+    public Fracao procurarFracao(int id) throws RuntimeException {
 
+        try {
+            Fracao fracaoEncontrado = this.fracoes.get(id);
+
+            if (fracaoEncontrado == null)
+                throw new RuntimeException("Fracao não encontrada!");
+
+            return fracaoEncontrado;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void procurarFracao(String id) {
+    public boolean verificarEquilibrio() throws RuntimeException {
+        try {
+            return somaQuotaMensal() > 99.00;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public boolean verificarEquilibrio() {
-        return false;
+    public double somaPercentagemFracoes() throws RuntimeException {
+        try {
+            double soma = 0.0;
+
+            if (fracoes != null)
+                for (Fracao fracao : fracoes)
+                    soma += fracao.getPercentagemArea();
+
+            return soma;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public double somaPercentagemFracoes() {
-        return 0;
-    }
+    public double somaQuotaMensal() throws RuntimeException {
+        try {
 
-    public double somaQuotaMensal() {
-        return 0;
+            double somaQuotas = 0.0;
+
+            if (fracoes != null)
+                for (Fracao fracao : fracoes)
+                    somaQuotas += fracao.getQuotaMensal(this.despesaGeral, this.despesaComElevador);
+
+            return somaQuotas;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString() + 
+        return super.toString() +
                 "\tmorada: " + this.getMorada() + "\n" +
-                "\tdispesaGeral: " + this.getDispesaGeral() + "\n" +
-                "\tdispesaComElevador: " + this.getDispesaComElevador() + "\n" +
+                "\tdespesaGeral: " + this.getDespesaGeral() + "\n" +
+                "\tdespesaComElevador: " + this.getDespesaComElevador() + "\n" +
                 "\tdataDeConstrucao: " + this.getDataConstrucao() + "\n" +
+                "\tareaTotal: " + areaTotal + "\n" +
+                "\tnumeroFracoes: " + numeroFracoes + "\n" +
                 "}";
     }
+
 }

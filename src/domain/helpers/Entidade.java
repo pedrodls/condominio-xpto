@@ -1,23 +1,25 @@
 package domain.helpers;
 
-import java.io.Serializable;
+public class Entidade implements IEntidade {
 
-public class Entidade implements Serializable {
+    protected int id;
 
-    protected Id id;
     private static final long serialVersionUID = 1L;
 
     public Entidade() {
-        this.id = new Id();
     }
 
-    public String getId() {
-        return this.id.getDescricao();
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "\n{\n\tid: " + this.id.getDescricao() + "\n";
+        return "\n{\n\tid: " + this.id + "\n";
     }
 
 }

@@ -1,11 +1,9 @@
 package infrastructure.repositorios;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import application.IRepositorio;
 import domain.helpers.Entidade;
-import domain.helpers.Id;
 import infrastructure.entidadePersistente.EntidadePersistente;
 
 public class RepositorioBase<T extends Entidade> implements IRepositorio<T> {
@@ -16,7 +14,7 @@ public class RepositorioBase<T extends Entidade> implements IRepositorio<T> {
         this.entidadePersistente = entidadePersistente;
     }
 
-    public T create(T dados) throws Error {
+    public T create(T dados) throws RuntimeException {
         try {
             ArrayList<T> dadosPersistentes = this.entidadePersistente.getTodosDados();
 
@@ -26,65 +24,66 @@ public class RepositorioBase<T extends Entidade> implements IRepositorio<T> {
 
             return dados;
         } catch (Exception e) {
-            throw new Error(e);
+            throw new RuntimeException(e);
         }
     }
 
-    public boolean update(T dados) throws Error {
+    public T update(T dados) throws RuntimeException {
         try {
 
             ArrayList<T> dadosPersistentes = this.entidadePersistente.getTodosDados();
 
-            dadosPersistentes.add(dadosPersistentes.indexOf(this.findById(dados.getId())), dados);
+            dadosPersistentes.set(dados.getId(), dados);
+
+            this.entidadePersistente.salvarTodosDados(dadosPersistentes);
+
+            return dados;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean delete(int id) throws RuntimeException {
+        try {
+
+            ArrayList<T> dadosPersistentes = this.entidadePersistente.getTodosDados();
+
+            dadosPersistentes.remove(this.findById(id).getId());
 
             this.entidadePersistente.salvarTodosDados(dadosPersistentes);
 
             return true;
 
         } catch (Exception e) {
-            throw new Error(e);
+            throw new RuntimeException(e);
         }
     }
 
-    public boolean delete(String id) throws Error {
+    public T findById(int id) throws RuntimeException {
         try {
 
             ArrayList<T> dadosPersistentes = this.entidadePersistente.getTodosDados();
 
-            dadosPersistentes.remove(this.findById(id));
+            if (dadosPersistentes.isEmpty())
+                throw new RuntimeException("Lista de dados vazia!");
 
-            this.entidadePersistente.salvarTodosDados(dadosPersistentes);
+            T dadosEncontrados = dadosPersistentes.get(id);
 
-            return true;
-
-        } catch (Exception e) {
-            throw new Error(e);
-        }
-    }
-
-    public T findById(String id) throws Error {
-        try {
-
-            ArrayList<T> dadosPersistentes = this.entidadePersistente.getTodosDados();
-
-            T dadosEncontrados = dadosPersistentes.stream()
-                    .filter(p -> p.getId().equals(id))
-                    .findFirst().get();
-
-            if (!(dadosEncontrados.getId().length() > 0))
-                throw new Error("Dado(s) não encontrado(s)");
+            if (!(dadosEncontrados == null))
+                throw new RuntimeException("Dado(s) não encontrado(s)");
 
             return dadosEncontrados;
         } catch (Exception e) {
-            throw new Error(e);
+            throw new RuntimeException(e);
         }
     }
 
-    public ArrayList<T> findAll() throws Error {
+    public ArrayList<T> findAll() throws RuntimeException {
         try {
             return this.entidadePersistente.getTodosDados();
         } catch (Exception e) {
-            throw new Error(e);
+            throw new RuntimeException(e);
         }
     }
 }

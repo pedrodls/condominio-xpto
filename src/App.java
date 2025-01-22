@@ -5,9 +5,7 @@
 
 import application.condominio.CondominioDTO;
 import application.condominio.CondominioService;
-import domain.condominio.Condominio;
 import infrastructure.repositorios.CondominioRepositorio;
-import java.util.ArrayList;
 
 /**
  *
@@ -19,21 +17,29 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO Teste do CRUD do condominio
-
         try {
-            //CondominioDTO dadosCondominio = new CondominioDTO("Avenida São José", 2424.0, 432.0, "02/10/2020");
+
+            CondominioDTO dadosCondominio = new CondominioDTO("Avenida São Silvestre", 2424.0, 432.0,
+                    "02/10/2020");
 
             CondominioService cs = new CondominioService(new CondominioRepositorio());
 
-            //Condominio novoCondominio = cs.criarCondominio(dadosCondominio);
+            //cs.criarCondominio(dadosCondominio);
 
-            ArrayList<Condominio> dadosCmd = cs.condominioRepositorio.findAll();
-            
-            dadosCmd.forEach(action -> {
-                System.out.println(action.toString());
-            });
-            
+            System.out.println(cs.buscarCondominio());
+
+            System.out.println(cs.atualizarCondominio(dadosCondominio));
+
+            //System.out.println(cs.buscarCondominio());
+
+            //cs.listarFracoes();
+
+            // System.out.println(cs.verificarEquilibrio());
+
+            // System.out.println(cs.somaPercentagemFracoes());
+
+            // System.out.println(cs.somaQuotaMensal());
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

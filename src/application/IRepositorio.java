@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public interface IRepositorio<T> {
     public T create(T dados);
-    public boolean update(T dados);
-    public boolean delete(String id);
-    public T findById(String id);
+    public T update(T dados);
+    public boolean delete(int id);
+    public T findById(int id);
     public ArrayList<T> findAll();
 }

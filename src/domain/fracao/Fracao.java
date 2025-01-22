@@ -5,31 +5,31 @@ import domain.proprietario.IProprietario;
 
 public class Fracao extends Entidade implements IFracao {
 
-    protected int area;
-    protected float percentagemArea;
+    protected long area;
+    protected double percentagemArea;
     protected String localizacao;
     protected IProprietario proprietario;
 
-    public Fracao(int area, float percentagemArea, String localizacao, IProprietario proprietario) {
+    public Fracao(long area, double percentagemArea, String localizacao, IProprietario proprietario) {
         this.area = area;
         this.percentagemArea = percentagemArea;
         this.localizacao = localizacao;
         this.proprietario = proprietario;
     }
 
-    public int getArea() {
+    public long getArea() {
         return area;
     }
 
-    public void setArea(int area) {
+    public void setArea(long area) {
         this.area = area;
     }
 
-    public float getPercentagemArea() {
+    public double getPercentagemArea() {
         return percentagemArea;
     }
 
-    public void setPercentagemArea(float percentagemArea) {
+    public void setPercentagemArea(double percentagemArea) {
         this.percentagemArea = percentagemArea;
     }
 
@@ -49,8 +49,13 @@ public class Fracao extends Entidade implements IFracao {
         this.proprietario = proprietario;
     }
 
-    public float getQuotaMensal(float dispesaGeral, float dispesaComElevador){
+    public double getQuotaMensal(double despesaGeral, double despesaComElevador){
+
+        //Calcular cota mensal, lembrando que existe temos de pegar a Condominio.areaTotal pois é estático
+        
         return 0;
     }
+
+    
 
 }

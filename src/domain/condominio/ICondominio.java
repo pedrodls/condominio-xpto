@@ -1,41 +1,44 @@
 package domain.condominio;
 
-
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-import domain.fracao.IFracao;
+import domain.fracao.Fracao;
+import domain.helpers.IEntidade;
 
-public interface ICondominio {
+public interface ICondominio extends IEntidade {
 
     public String getMorada();
 
     public void setMorada(String morada);
 
-    public double getDispesaGeral();
+    public double getDespesaGeral();
 
-    public void setDispesaGeral(double dispesaGeral);
+    public void setDespesaGeral(double despesaGeral);
 
-    public double getDispesaComElevador();
+    public double getDespesaComElevador();
 
-    public void setDispesaComElevador(double dispesaComElevador);
+    public void setDespesaComElevador(double despesaComElevador);
 
-    public void listarFracoes();
+    public void setFracoes(ArrayList<Fracao> fracoes);
 
-    //public void setFracoes(ArrayList<IFracao> fracoes);
+    public ArrayList<Fracao> getFracoes();
 
-    //public int getNumeroFracoes();
-    
-    //public ArrayList<IFracao> getFracoes();
+    public int getNumeroFracoes();
+
+    public long getAreaTotal();
 
     public LocalDate getDataConstrucao();
 
     public void setDataConstrucao(LocalDate dataConstrucao);
 
-    public void addFracao(IFracao fracao);
+    public void listarFracoes();
 
-    public void eliminarFracao(String id);
+    public void addFracao(Fracao novaFracao);
 
-    public void procurarFracao(String id);
+    public void eliminarFracao(int id);
+
+    public Fracao procurarFracao(int id);
 
     public boolean verificarEquilibrio();
 

@@ -7,12 +7,12 @@ import java.time.format.DateTimeParseException;
 public class UtilDate {
 
     // Método para converter string para LocalDate com um formato personalizado
-    public static LocalDate stringToLocalDate(String dateString) throws Error {
+    public static LocalDate stringToLocalDate(String dateString) throws RuntimeException {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             return LocalDate.parse(dateString, formatter);
         } catch (DateTimeParseException e) {
-            throw new Error("Erro ao parsear a data: " + e.getMessage());
+            throw new RuntimeException("Erro ao parsear a data: " + e.getMessage());
 
         }
     }
