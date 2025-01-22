@@ -9,9 +9,9 @@ public class Garagem extends Fracao {
 
     private boolean servicoDeLavagem;
 
-    public Garagem(int area, float percentagemArea, String localizacao, IProprietario proprietario, int numeroViaturas, boolean servicoDeLavagem) {
+    public Garagem(int area, String localizacao, IProprietario proprietario, int numeroViaturas, boolean servicoDeLavagem) {
 
-        super(area, percentagemArea, localizacao, proprietario);
+        super(area, localizacao, proprietario);
         this.numeroViaturas = numeroViaturas;
         this.servicoDeLavagem = servicoDeLavagem;
 

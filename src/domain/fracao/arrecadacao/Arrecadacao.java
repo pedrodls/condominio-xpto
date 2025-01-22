@@ -7,10 +7,10 @@ public class Arrecadacao extends Fracao {
 
     private boolean portaBlindada;
 
-    public Arrecadacao(int area, float percentagemArea, String localizacao, IProprietario proprietario,
+    public Arrecadacao(int area, String localizacao, IProprietario proprietario,
             boolean portaBlindada) {
 
-        super(area, percentagemArea, localizacao, proprietario);
+        super(area, localizacao, proprietario);
         this.portaBlindada = portaBlindada;
 
     }

@@ -10,8 +10,8 @@ public class Apartamento extends Fracao{
     private int numeroVarandas;
     private boolean terraco;
 
-    public Apartamento(int area, float percentagemArea, String localizacao, IProprietario proprietario, TipoApartamento tipo, int numeroCasaBanhos, int numeroVarandas, boolean terraco) {
-        super(area, percentagemArea, localizacao, proprietario);
+    public Apartamento(int area, String localizacao, IProprietario proprietario, TipoApartamento tipo, int numeroCasaBanhos, int numeroVarandas, boolean terraco) {
+        super(area, localizacao, proprietario);
         this.tipo = tipo;
         this.numeroCasaBanhos = numeroCasaBanhos;
         this.numeroVarandas = numeroVarandas;
