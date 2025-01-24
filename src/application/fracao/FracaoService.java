@@ -69,13 +69,13 @@ public class FracaoService {
         }
     }
 
-    public void retirarFracao(int id) throws RuntimeException {
-        try {
+    // public void retirarFracao(int id) throws RuntimeException {
+    //     try {
             
-            this.fracaoRepositorio.delete(id);
+    //         this.fracaoRepositorio.delete(id);
             
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+    //     } catch (Exception e) {
+    //         throw new RuntimeException(e);
+    //     }
+    // }
 }

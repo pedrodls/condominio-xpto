@@ -2,8 +2,6 @@ package application.fracao.useCases;
 
 import application.fracao.FracaoDTO;
 import domain.fracao.Fracao;
-import domain.fracao.Fracao;
-import utils.UtilDate;
 
 public class AtualizarFracaoUseCase {
 
