@@ -61,6 +61,35 @@ public class Fracao extends Entidade implements IFracao {
         return (despesaGeral + despesaComElevador) * this.percentagemArea;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\tarea: " + this.area + "\n" +
+                "\tpercentagemArea: " + this.percentagemArea + "\n" +
+                "\tlocalizacao: " + this.localizacao + "\n" +
+                "\tproprietario: " + this.proprietario + "\n";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj instanceof Fracao){
+            Fracao other = (Fracao) obj;
+
+            if (area != other.area)
+                return false;
+            if (Double.doubleToLongBits(percentagemArea) != Double.doubleToLongBits(other.percentagemArea))
+                return false;
+            if (!localizacao.equals(other.localizacao))
+                return false;
+            if (!proprietario.equals(other.proprietario))
+                return false;
+            return true;
+        }
+
+        return false;  
+        
+    }
     
 
 }

@@ -13,4 +13,9 @@ public class Loja extends Fracao {
     public double getQuotaMensal(double despesaGeral, double despesaComElevador){
         return despesaGeral * this.percentagemArea;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "}";
+    }
 }

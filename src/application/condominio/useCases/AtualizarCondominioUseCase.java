@@ -18,7 +18,7 @@ public class AtualizarCondominioUseCase {
 
         try {
             if (condominio == null)
-                throw new RuntimeException("Dados não Encontrado!");
+                throw new RuntimeException("Dados não Encontrados!");
 
             if (dadosPorAtualizar.morada.length() > 0)
                 this.condominio.setMorada(dadosPorAtualizar.morada);

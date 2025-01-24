@@ -1,6 +1,9 @@
 package application.fracao;
 
+import java.util.List;
+
 import application.IRepositorio;
+import application.fracao.useCases.AtualizarFracaoUseCase;
 import application.fracao.useCases.CriarFracaoUseCase;
 import domain.fracao.Fracao;
 
@@ -36,6 +39,43 @@ public class FracaoService {
 
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    //Retorna true se a fracção passada por parâmetro já existir no condomínio
+    public boolean existeFracao(FracaoDTO dados) throws RuntimeException {
+        try {
+            
+            List<Fracao> fracoes = this.fracaoRepositorio.findAll();
+            Fracao novaFracao = new CriarFracaoUseCase(dados).getFracao();
+
+            for (Fracao fracao : fracoes) {
+                if (fracao.equals(novaFracao)) return true;
+            }
+
+            return false;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    public Fracao atualizarFracao(int id, FracaoDTO dados) throws RuntimeException {
+        try {
+            return this.fracaoRepositorio
+                    .update(new AtualizarFracaoUseCase(this.buscarFracao(id), dados).validar());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void retirarFracao(int id) throws RuntimeException {
+        try {
+            
+            this.fracaoRepositorio.delete(id);
+            
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

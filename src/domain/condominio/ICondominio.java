@@ -1,9 +1,7 @@
 package domain.condominio;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import domain.fracao.Fracao;
 import domain.helpers.IEntidade;
 
 public interface ICondominio extends IEntidade {
