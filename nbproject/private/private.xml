@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/App.java</file>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/domain/condominio/Condominio.java</file>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/domain/fracao/Fracao.java</file>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/utils/Constantes.java</file>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/application/condominio/CondominioService.java</file>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/application/condominio/useCases/CriarCondominioUseCase.java</file>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/infrastructure/entidadePersistente/EntidadePersistente.java</file>
-            <file>file:/home/dev/Documents/ISPTEC/Prog%20III/condominio-xpto/src/infrastructure/repositorios/CondominioRepositorio.java</file>
+            <file>file:/C:/Users/OWNER/Documents/Isptec/Terceiro%20ano/Primeiro%20semestre/Prog3/PF/condominio-xpto/src/application/fracao/garagem/GaragemDTO.java</file>
+            <file>file:/C:/Users/OWNER/Documents/Isptec/Terceiro%20ano/Primeiro%20semestre/Prog3/PF/condominio-xpto/src/domain/fracao/apartamento/Apartamento.java</file>
+            <file>file:/C:/Users/OWNER/Documents/Isptec/Terceiro%20ano/Primeiro%20semestre/Prog3/PF/condominio-xpto/src/application/fracao/apartamento/ApartamentoDTO.java</file>
         </group>
     </open-files>
 </project-private>
