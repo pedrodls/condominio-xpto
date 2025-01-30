@@ -1,20 +1,20 @@
 package domain.fracao;
 
 import domain.helpers.Entidade;
-import domain.proprietario.IProprietario;
+import domain.proprietario.Proprietario;
 
 public class Fracao extends Entidade implements IFracao {
 
     protected double area;
     protected double percentagemArea;
     protected String localizacao;
-    protected IProprietario proprietario;
+    protected Proprietario proprietario;
 
     public Fracao(){
 
     }
     
-    public Fracao(double area, String localizacao, IProprietario proprietario) {
+    public Fracao(double area, String localizacao, Proprietario proprietario) {
         this.area = area;
         this.percentagemArea = 0.0;
         this.localizacao = localizacao;
@@ -46,11 +46,11 @@ public class Fracao extends Entidade implements IFracao {
         this.localizacao = localizacao;
     }
 
-    public IProprietario getProprietario() {
+    public Proprietario getProprietario() {
         return proprietario;
     }
 
-    public void setProprietario(IProprietario proprietario) {
+    public void setProprietario(Proprietario proprietario) {
         this.proprietario = proprietario;
     }
 

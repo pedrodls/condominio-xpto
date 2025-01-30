@@ -1,10 +1,10 @@
 package domain.fracao;
 
 import domain.helpers.IEntidade;
-import domain.proprietario.IProprietario;
+import domain.proprietario.Proprietario;
 
-public interface IFracao extends IEntidade  {
-    
+public interface IFracao extends IEntidade {
+
     public double getArea();
 
     public void setArea(double area);
@@ -17,9 +17,9 @@ public interface IFracao extends IEntidade  {
 
     public void setLocalizacao(String localizacao);
 
-    public IProprietario getProprietario();
+    public Proprietario getProprietario();
 
-    public void setProprietario(IProprietario proprietario);
+    public void setProprietario(Proprietario proprietario);
 
     public double getQuotaMensal(double despesaGeral, double despesaComElevador);
 }

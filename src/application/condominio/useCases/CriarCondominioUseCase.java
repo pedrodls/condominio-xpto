@@ -27,6 +27,7 @@ public class CriarCondominioUseCase {
 
       this.condominio.setDespesaComElevador(dados.despesaComElevador);
       this.condominio.setDespesaGeral(dados.despesaGeral);
+      
 
       return this.condominio;
     } catch (Exception e) {

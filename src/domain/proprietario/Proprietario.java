@@ -1,7 +1,6 @@
 package domain.proprietario;
 
 import java.util.Date;
-
 import domain.helpers.Entidade;
 
 public class Proprietario extends Entidade implements IProprietario {
@@ -12,6 +11,10 @@ public class Proprietario extends Entidade implements IProprietario {
     private String telemovel;
     private String email;
     private Date dataNascimento;
+
+    public Proprietario() {
+
+    }
 
     public Proprietario(
             String nome,

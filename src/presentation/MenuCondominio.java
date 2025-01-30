@@ -1,7 +1,6 @@
 package presentation;
 
-import presentation.controllers.condominio.CondominioController;
-import utils.Limpatela;
+import presentation.controllers.CondominioController;
 
 public class MenuCondominio extends Menu {
 

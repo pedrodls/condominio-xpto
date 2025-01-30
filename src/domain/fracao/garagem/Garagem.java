@@ -1,7 +1,7 @@
 package domain.fracao.garagem;
 
 import domain.fracao.Fracao;
-import domain.proprietario.IProprietario;
+import domain.proprietario.Proprietario;
 
 public class Garagem extends Fracao {
 
@@ -9,7 +9,7 @@ public class Garagem extends Fracao {
 
     private boolean servicoDeLavagem;
 
-    public Garagem(int area, String localizacao, IProprietario proprietario, int numeroViaturas, boolean servicoDeLavagem) {
+    public Garagem(int area, String localizacao, Proprietario proprietario, int numeroViaturas, boolean servicoDeLavagem) {
 
         super(area, localizacao, proprietario);
         this.numeroViaturas = numeroViaturas;

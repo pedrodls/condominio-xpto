@@ -1,7 +1,7 @@
 package domain.fracao.arrecadacao;
 
 import domain.fracao.Fracao;
-import domain.proprietario.IProprietario;
+import domain.proprietario.Proprietario;
 
 public class Arrecadacao extends Fracao {
 
@@ -12,7 +12,7 @@ public class Arrecadacao extends Fracao {
         super();
     }
 
-    public Arrecadacao(int area, String localizacao, IProprietario proprietario,
+    public Arrecadacao(int area, String localizacao, Proprietario proprietario,
             boolean portaBlindada) {
 
         super(area, localizacao, proprietario);

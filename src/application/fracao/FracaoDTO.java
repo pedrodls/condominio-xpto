@@ -4,15 +4,14 @@
  */
 package application.fracao;
 
-import domain.proprietario.IProprietario;
+import domain.proprietario.Proprietario;
 
 /**
  *
  * @author 20220204
  */
- public abstract class FracaoDTO {
+ public class FracaoDTO {
     public int area;
     public String localizacao;
-    public IProprietario proprietario;
-    
+    public Proprietario proprietario;
 }

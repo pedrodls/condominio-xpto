@@ -2,80 +2,73 @@ package application.fracao;
 
 import java.util.List;
 
-import application.IRepositorio;
-import application.fracao.useCases.AtualizarFracaoUseCase;
-import application.fracao.useCases.CriarFracaoUseCase;
+import domain.condominio.Condominio;
 import domain.fracao.Fracao;
 
-public class FracaoService {
-    private IRepositorio<Fracao> fracaoRepositorio;
+public class FracaoService<T extends Fracao, K extends FracaoDTO> implements IFracaoService<T, K> {
 
-    public FracaoService(IRepositorio<Fracao> fracaoRepositorio) {
-        this.fracaoRepositorio = fracaoRepositorio;
+    protected Condominio condominio;
+
+    public FracaoService(Condominio condominio) {
+        this.condominio = condominio;
     }
 
-    public Fracao buscarFracao(int id) throws RuntimeException {
+    @SuppressWarnings("unchecked")
+    public T criar(K dados) throws RuntimeException {
         try {
-            return this.fracaoRepositorio.findById(id);
+            return (T) this.condominio.addFracao(new CriarFracaoUseCase(dados).validar());
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public T buscar(int id) throws RuntimeException {
+        try {
+            return (T) this.condominio.buscarFracao(id);
         } catch (Exception e) {
             return null;
         }
     }
 
-    public Fracao criarFracao(FracaoDTO dados) throws RuntimeException {
+    @SuppressWarnings("unchecked")
+    public void listar() throws RuntimeException {
         try {
 
-            // Essa parte desta verificação será feita em outro lugar
+            System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-            /*
-             * Fracao fracao = this.buscarFracao();
-             * 
-             * if (fracao != null)
-             * throw new
-             * RuntimeException("Arrecadação já existe, não pode criar outra vez!");
-             */
+            for (T fracao : (List<T>) this.condominio.getFracoes())
+                System.out.println(fracao.toString());
 
-            return this.fracaoRepositorio.create(new CriarFracaoUseCase(dados).getFracao());
+            System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        }
-    }
-
-    //Retorna true se a fracção passada por parâmetro já existir no condomínio
-    public boolean existeFracao(FracaoDTO dados) throws RuntimeException {
-        try {
-            
-            List<Fracao> fracoes = this.fracaoRepositorio.findAll();
-            Fracao novaFracao = new CriarFracaoUseCase(dados).getFracao();
-
-            for (Fracao fracao : fracoes) {
-                if (fracao.equals(novaFracao)) return true;
-            }
-
-            return false;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        }
-    }
-
-    public Fracao atualizarFracao(int id, FracaoDTO dados) throws RuntimeException {
-        try {
-            return this.fracaoRepositorio
-                    .update(new AtualizarFracaoUseCase(this.buscarFracao(id), dados).validar());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    // public void retirarFracao(int id) throws RuntimeException {
-    //     try {
-            
-    //         this.fracaoRepositorio.delete(id);
-            
-    //     } catch (Exception e) {
-    //         throw new RuntimeException(e);
-    //     }
-    // }
+    @SuppressWarnings("unchecked")
+    public boolean existe(T elemento) throws RuntimeException {
+        try {
+
+            for (T fracao : (List<T>) this.condominio.getFracoes())
+                if (fracao.equals(elemento))
+                    return true;
+
+            return false;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public T atualizar(int id, K dados) throws RuntimeException {
+        try {
+            return (T) this.condominio
+                    .atualizarFracao(new AtualizarFracaoUseCase(this.condominio.buscarFracao(id), dados).validar());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

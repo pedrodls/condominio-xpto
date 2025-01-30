@@ -28,4 +28,14 @@ public interface ICondominio extends IEntidade {
 
     public List<Fracao> getFracoes();
 
+    public void setPercentagemFracoes();
+
+    public Fracao addFracao(Fracao fracao) throws RuntimeException;
+
+    public boolean retirarFracao(int id) throws RuntimeException;
+
+    public Fracao buscarFracao(int id) throws RuntimeException;
+
+    public Fracao atualizarFracao(Fracao fracaoAtualizada) throws RuntimeException;
+
 }

@@ -4,7 +4,6 @@
  */
 
 import presentation.MenuGeral;
-import utils.Limpatela;
 
 /**
  *

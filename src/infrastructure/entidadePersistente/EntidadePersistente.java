@@ -28,7 +28,8 @@ public class EntidadePersistente<T extends Serializable> {
             throw new RuntimeException(e);
         }
     }
-
+    
+    @SuppressWarnings("unchecked")
     public ArrayList<T> getTodosDados() throws RuntimeException {
         try (FileInputStream fis = new FileInputStream(this.nomeFicheiro);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
