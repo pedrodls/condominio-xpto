@@ -46,7 +46,7 @@ public class CriarCondominioController {
 
             Condominio novoCondominio = condominioService.criarCondominio(condominioDTO);
 
-            System.out.println("Condomínio atualizado com sucesso!");
+            System.out.println("Condomínio criado com sucesso!");
             PauseToRead.pause();
 
             return novoCondominio;

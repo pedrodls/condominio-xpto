@@ -69,18 +69,6 @@ public class Condominio extends Entidade implements ICondominio {
         this.dataConstrucao = dataConstrucao;
     }
 
-    public void setPercentagemFracoes() throws RuntimeException {
-        try {
-            if (this.fracoes.size() > 0) {
-                for (Fracao fracao : fracoes) {
-                    fracao.setPercentagemArea((fracao.getArea() / this.areaTotal) * 100);
-                }
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public List<Proprietario> getProprietarios() {
         return this.proprietarios;
     }
@@ -155,6 +143,65 @@ public class Condominio extends Entidade implements ICondominio {
         }
     }
 
+    public void listFracoes() {
+        System.out.println("----------Fracções que compõem o condomínio----------");
+        System.out.println(" ");
+
+        for (Fracao fracao : fracoes) {
+            System.out.println(fracao);
+            System.out.println(" ");
+            System.out.println(" ");
+        }
+    }
+
+    public void setPercentagemFracoes() throws RuntimeException {
+        try {
+            if (this.fracoes != null && this.fracoes.size() > 0) {
+                for (Fracao fracao : fracoes) {
+                    fracao.setPercentagemArea((fracao.getArea() / this.areaTotal) * 100);
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public double calculateSomaPercentagensFracoes() {
+
+        if (this.fracoes == null)
+            return 0;
+
+        double temp = 0.0;
+
+        for (Fracao fracao : fracoes) {
+            temp += fracao.getPercentagemArea();
+        }
+
+        return temp;
+    }
+
+    public boolean verificarPercentagensFracoes() {
+        return Math.round(calculateSomaPercentagensFracoes()) == 100;
+    }
+
+    public double calculateSomaQuotas() {
+
+        if (this.fracoes == null)
+        return 0;
+        
+        double temp = 0.0;
+
+        for (Fracao fracao : fracoes) {
+            temp += fracao.getQuotaMensal(despesaGeral, despesaComElevador);
+        }
+
+        return temp;
+    }
+
+    public boolean verificarSomaQuotas() {
+        return this.calculateSomaQuotas() == (despesaGeral + despesaComElevador);
+    }
+
     @Override
     public String toString() {
         return super.toString() +
@@ -166,4 +213,5 @@ public class Condominio extends Entidade implements ICondominio {
                 "\tnumeroFracoes: " + (this.fracoes == null ? 0 : this.fracoes.size()) + "\n" +
                 "}";
     }
+
 }

@@ -57,7 +57,6 @@ public class MenuGeral {
 
     public void renderizarMenu() {
 
-       
         boolean naoSair = true;
 
         do {
@@ -77,7 +76,16 @@ public class MenuGeral {
                 case '4':
                     VisualizarCondominioController.visualizar(this.condominio);
                     break;
-                case '9':
+                case '5':
+                    VisualizarDespesasController.visualizar(condominio);
+                    break;
+                case '6':
+                    CalcularCotasMensaisController.visualizar(condominio);
+                    break;
+                case '7':
+                    VerificarPercentagenFracoesController.visualizar(condominio);
+                    break;
+                case '8':
                     salvarDados();
                     System.out.println("Até a próxima :)");
                     naoSair = false;

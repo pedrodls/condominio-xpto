@@ -19,16 +19,17 @@ public class AtualizarCondominioUseCase {
             if (condominio == null)
                 throw new RuntimeException("Dados não Encontrados!");
 
-            if (dadosPorAtualizar.morada.length() > 0)
+            if (!dadosPorAtualizar.morada.equals(condominio.getMorada()))
                 this.condominio.setMorada(dadosPorAtualizar.morada);
 
-            if (dadosPorAtualizar.dataConstrucao.length() > 0)
+            if (!dadosPorAtualizar.dataConstrucao.equals(condominio.getDataConstrucao()))
                 this.condominio.setDataConstrucao(dadosPorAtualizar.dataConstrucao);
 
-            if (dadosPorAtualizar.despesaGeral >= 0)
+            if (dadosPorAtualizar.despesaGeral >= 0 && condominio.getDespesaGeral() != dadosPorAtualizar.despesaGeral)
                 this.condominio.setDespesaComElevador(dadosPorAtualizar.despesaComElevador);
 
-            if (dadosPorAtualizar.despesaComElevador >= 0)
+            if (dadosPorAtualizar.despesaComElevador >= 0
+                    && condominio.getDespesaComElevador() != dadosPorAtualizar.despesaComElevador)
                 this.condominio.setDespesaGeral(dadosPorAtualizar.despesaGeral);
 
             return this.condominio;

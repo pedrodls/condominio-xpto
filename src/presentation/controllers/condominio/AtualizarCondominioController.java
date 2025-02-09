@@ -88,17 +88,14 @@ public class AtualizarCondominioController {
             // Atualiza os dados e retorna o novo condomínio
             Condominio novoCondominio = condominioService.atualizarCondominio(condominioDTO, condominio);
 
-            if (condominio.hashCode() != novoCondominio.hashCode())
-                System.out.println("Condomínio atualizado com sucesso!");
-
+            System.out.println("Condomínio atualizado com sucesso!");
             PauseToRead.pause();
-
             return novoCondominio;
 
         } catch (Exception e) {
             System.out.println("Erro ao atualizar: " + e.getMessage());
 
-            // Pergunta se deseja tentar novamente ou voltar ao menu
+            // Pergunta se deseja tentar no vamente ou voltar ao menu
             System.out.print("Deseja tentar novamente? (S | N): ");
             Scanner sc = new Scanner(System.in);
             char resposta = sc.next().charAt(0);

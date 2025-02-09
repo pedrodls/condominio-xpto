@@ -24,11 +24,16 @@ public class Constantes {
                         // "Retirar fracção",
                         // "Listar fracções",
                         "Visualisar valores das despesas",
-                        "Calcular  a soma das quotas mensais",
+                        // "Calcular a soma das quotas mensais",
                         "Calcular  a soma das quotas mensais",
                         "Verificar a soma das percentagens das fracções",
                         "Sair",
 
         };
 
+        public static final String[] despesaMenu = new String[] {
+                        "Despesa Geral",
+                        "Despesa com o elevador",
+                        "Sair"
+        };
 }
