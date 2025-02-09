@@ -1,6 +1,5 @@
 package domain.condominio;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import domain.fracao.Fracao;
@@ -22,9 +21,9 @@ public interface ICondominio extends IEntidade {
 
     public double getAreaTotal();
 
-    public LocalDate getDataConstrucao();
+    public String getDataConstrucao();
 
-    public void setDataConstrucao(LocalDate dataConstrucao);
+    public void setDataConstrucao(String dataConstrucao);
 
     public List<Fracao> getFracoes();
 

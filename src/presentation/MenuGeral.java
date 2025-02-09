@@ -2,7 +2,7 @@ package presentation;
 
 import domain.condominio.Condominio;
 import infrastructure.Persistente;
-import presentation.controllers.CondominioController;
+import presentation.controllers.condominio.*;
 import utils.Constantes;
 
 public class MenuGeral {
@@ -40,7 +40,7 @@ public class MenuGeral {
 
             switch (opcao) {
                 case '1':
-                    this.condominio = CondominioController.criar();
+                    this.condominio = CriarCondominioController.criar();
                     this.renderizarMenu();
                     return;
                 case '2':
@@ -57,11 +57,7 @@ public class MenuGeral {
 
     public void renderizarMenu() {
 
-        try {
-            System.in.skip(System.in.available());
-        } catch (Exception e) {
-        }
-
+       
         boolean naoSair = true;
 
         do {
@@ -71,6 +67,15 @@ public class MenuGeral {
             switch (opcao) {
                 case '1':
                     System.out.println("Funcionalidade 1");
+                    break;
+                case '2':
+                    System.out.println("Funcionalidade 2");
+                    break;
+                case '3':
+                    this.condominio = AtualizarCondominioController.atualizar(this.condominio);
+                    break;
+                case '4':
+                    VisualizarCondominioController.visualizar(this.condominio);
                     break;
                 case '9':
                     salvarDados();

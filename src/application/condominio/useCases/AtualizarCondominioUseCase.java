@@ -2,7 +2,6 @@ package application.condominio.useCases;
 
 import application.condominio.CondominioDTO;
 import domain.condominio.Condominio;
-import utils.UtilDate;
 
 public class AtualizarCondominioUseCase {
 
@@ -24,7 +23,7 @@ public class AtualizarCondominioUseCase {
                 this.condominio.setMorada(dadosPorAtualizar.morada);
 
             if (dadosPorAtualizar.dataConstrucao.length() > 0)
-                this.condominio.setDataConstrucao(UtilDate.stringToLocalDate(dadosPorAtualizar.dataConstrucao));
+                this.condominio.setDataConstrucao(dadosPorAtualizar.dataConstrucao);
 
             if (dadosPorAtualizar.despesaGeral >= 0)
                 this.condominio.setDespesaComElevador(dadosPorAtualizar.despesaComElevador);

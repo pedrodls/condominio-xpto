@@ -1,4 +1,4 @@
-package presentation.controllers;
+package presentation.controllers.condominio;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -8,58 +8,62 @@ import application.condominio.CondominioService;
 import domain.condominio.Condominio;
 import utils.PauseToRead;
 
-public class CondominioController {
+public class CriarCondominioController {
 
     private static String regex = "^([0-2][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
     private static Pattern pattern = Pattern.compile(regex);
 
-    public static Condominio criar() throws RuntimeException {
+    public static Condominio criar() {
 
-        try {
-
-            Scanner sc = new Scanner(System.in);
+        try  {
 
             System.out.println("\t-- Criando Condominio --\n");
-
+            Scanner sc = new Scanner(System.in);
             CondominioDTO condominioDTO = new CondominioDTO();
-
             CondominioService condominioService = new CondominioService();
 
-            System.out.flush();
-
-            System.out.println("Insira a morada: ");
+            System.out.print("Insira a morada: ");
             condominioDTO.morada = sc.nextLine();
 
-            while (true) {
-                System.out.println("Insira a data de construção (DD/MM/YYYY): ");
+            do {
+                System.out.print("Insira a data de construção (DD/MM/YYYY): ");
                 condominioDTO.dataConstrucao = sc.nextLine();
 
                 if (pattern.matcher(condominioDTO.dataConstrucao).matches()) {
                     break;
-                } else
+                } else {
                     System.out.println("Formato inválido! Use DD/MM/YYYY.");
-            }
+                }
+            } while (true);
 
-            System.out.println("Insira o valor da despesa geral: ");
+            System.out.print("Insira o valor da despesa geral: ");
             condominioDTO.despesaGeral = sc.nextDouble();
+            sc.nextLine();
 
-            System.out.println("Insira o valor da despesa com elevador: ");
+            System.out.print("Insira o valor da despesa com elevador: ");
             condominioDTO.despesaComElevador = sc.nextDouble();
+            sc.nextLine(); 
 
             Condominio novoCondominio = condominioService.criarCondominio(condominioDTO);
 
-
-            System.out.println("Condomínio criado com sucesso!");
+            System.out.println("Condomínio atualizado com sucesso!");
             PauseToRead.pause();
-            System.out.flush();
 
             return novoCondominio;
 
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-            // se der erro perguntar se quer continuar a criar ou quer sair!!
-            return criar();
-        }
+        } catch (Exception e) {
+            System.out.println("Erro ao Criar: " + e.getMessage());
 
+            // Pergunta se deseja tentar novamente ou voltar ao menu
+            System.out.print("Deseja tentar novamente? (S | N): ");
+            Scanner sc = new Scanner(System.in);
+            char resposta = sc.next().charAt(0);
+            sc.nextLine();
+
+            if (resposta == 'S' || resposta == 's')
+                return criar();
+
+            return null;
+        }
     }
 }

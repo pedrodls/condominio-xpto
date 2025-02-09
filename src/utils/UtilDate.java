@@ -17,4 +17,13 @@ public class UtilDate {
         }
     }
 
+    public static LocalDate LocalDateToString(String dateString) throws RuntimeException {
+        try {
+            return LocalDate.parse(dateString);
+        } catch (DateTimeParseException e) {
+            throw new RuntimeException("Erro ao parsear a data: " + e.getMessage());
+
+        }
+    }
+
 }

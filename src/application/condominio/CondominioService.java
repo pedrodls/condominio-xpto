@@ -31,10 +31,10 @@ public class CondominioService {
         }
     }
 
-    public Condominio atualizarCondominio(CondominioDTO dados) throws RuntimeException {
+    public Condominio atualizarCondominio(CondominioDTO dados, Condominio condominio) throws RuntimeException {
         try {
 
-            Condominio condominioAtualizado = new AtualizarCondominioUseCase(this.buscarCondominio(), dados).validar();
+            Condominio condominioAtualizado = new AtualizarCondominioUseCase(condominio, dados).validar();
 
             return condominioAtualizado;
         } catch (Exception e) {

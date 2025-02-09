@@ -1,6 +1,5 @@
 package domain.condominio;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Condominio extends Entidade implements ICondominio {
     private double areaTotal;
     private double despesaGeral;
     private double despesaComElevador;
-    private LocalDate dataConstrucao;
+    private String dataConstrucao;
     private List<Fracao> fracoes;
     private List<Proprietario> proprietarios;
 
@@ -22,7 +21,7 @@ public class Condominio extends Entidade implements ICondominio {
 
     }
 
-    public Condominio(String morada, double despesaGeral, double despesaComElevador, LocalDate dataConstrucao,
+    public Condominio(String morada, double despesaGeral, double despesaComElevador, String dataConstrucao,
             double areaTotal, int numeroFracoes) {
 
         this.morada = morada;
@@ -62,11 +61,11 @@ public class Condominio extends Entidade implements ICondominio {
         return areaTotal;
     }
 
-    public LocalDate getDataConstrucao() {
+    public String getDataConstrucao() {
         return dataConstrucao;
     }
 
-    public void setDataConstrucao(LocalDate dataConstrucao) {
+    public void setDataConstrucao(String dataConstrucao) {
         this.dataConstrucao = dataConstrucao;
     }
 

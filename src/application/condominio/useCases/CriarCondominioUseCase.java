@@ -2,7 +2,6 @@ package application.condominio.useCases;
 
 import application.condominio.CondominioDTO;
 import domain.condominio.Condominio;
-import utils.UtilDate;
 
 public class CriarCondominioUseCase {
 
@@ -23,11 +22,10 @@ public class CriarCondominioUseCase {
 
       this.condominio.setId(1);
       this.condominio.setMorada(dados.morada);
-      this.condominio.setDataConstrucao(UtilDate.stringToLocalDate(dados.dataConstrucao));
+      this.condominio.setDataConstrucao(dados.dataConstrucao);
 
       this.condominio.setDespesaComElevador(dados.despesaComElevador);
       this.condominio.setDespesaGeral(dados.despesaGeral);
-      
 
       return this.condominio;
     } catch (Exception e) {
