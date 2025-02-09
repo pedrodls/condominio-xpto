@@ -33,8 +33,10 @@ public class AtualizarCondominioController {
             sc.nextLine(); // Limpar buffer
 
             if (opAtualizar.contains(Character.toString(atualizar))) {
-                System.out.print("Insira a morada: ");
-                condominioDTO.morada = sc.nextLine();
+                do {
+                    System.out.print("Insira a morada(min 2 caracteres): ");
+                    condominioDTO.morada = sc.nextLine();
+                } while (condominioDTO.morada.length() < 2);
             } else {
                 condominioDTO.morada = condominio.getMorada();
             }
@@ -65,9 +67,14 @@ public class AtualizarCondominioController {
             sc.nextLine(); // Limpar buffer
 
             if (opAtualizar.contains(Character.toString(atualizar))) {
-                System.out.print("Insira o valor da despesa geral: ");
-                condominioDTO.despesaGeral = sc.nextDouble();
-                sc.nextLine(); // Limpar buffer
+
+                do {
+                    System.out.print("Insira o valor da despesa geral(valor não negativo): ");
+                    condominioDTO.despesaGeral = sc.nextDouble();
+                    sc.nextLine();
+                } while (condominioDTO.despesaGeral < 0);
+
+                // Limpar buffer
             } else {
                 condominioDTO.despesaGeral = condominio.getDespesaGeral();
             }
@@ -78,9 +85,11 @@ public class AtualizarCondominioController {
             sc.nextLine(); // Limpar buffer
 
             if (opAtualizar.contains(Character.toString(atualizar))) {
-                System.out.print("Insira o valor da despesa com elevador: ");
-                condominioDTO.despesaComElevador = sc.nextDouble();
-                sc.nextLine(); // Limpar buffer
+                do {
+                    System.out.print("Insira o valor da despesa com elevador(valor não negativo): ");
+                    condominioDTO.despesaComElevador = sc.nextDouble();
+                    sc.nextLine(); // Limpar buffer
+                } while (condominioDTO.despesaComElevador < 0);
             } else {
                 condominioDTO.despesaComElevador = condominio.getDespesaComElevador();
             }

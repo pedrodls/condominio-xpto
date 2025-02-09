@@ -15,15 +15,17 @@ public class CriarCondominioController {
 
     public static Condominio criar() {
 
-        try  {
+        try {
 
             System.out.println("\t-- Criando Condominio --\n");
             Scanner sc = new Scanner(System.in);
             CondominioDTO condominioDTO = new CondominioDTO();
             CondominioService condominioService = new CondominioService();
 
-            System.out.print("Insira a morada: ");
-            condominioDTO.morada = sc.nextLine();
+            do {
+                System.out.print("Insira a morada(min 2 caracteres): ");
+                condominioDTO.morada = sc.nextLine();
+            } while (condominioDTO.morada.length() < 2);
 
             do {
                 System.out.print("Insira a data de construção (DD/MM/YYYY): ");
@@ -36,13 +38,17 @@ public class CriarCondominioController {
                 }
             } while (true);
 
-            System.out.print("Insira o valor da despesa geral: ");
-            condominioDTO.despesaGeral = sc.nextDouble();
-            sc.nextLine();
+            do {
+                System.out.print("Insira o valor da despesa geral(valor não negativo): ");
+                condominioDTO.despesaGeral = sc.nextDouble();
+                sc.nextLine();
+            } while (condominioDTO.despesaGeral < 0);
 
-            System.out.print("Insira o valor da despesa com elevador: ");
-            condominioDTO.despesaComElevador = sc.nextDouble();
-            sc.nextLine(); 
+            do {
+                System.out.print("Insira o valor da despesa com elevador(valor não negativo): ");
+                condominioDTO.despesaComElevador = sc.nextDouble();
+                sc.nextLine(); // Limpar buffer
+            } while (condominioDTO.despesaComElevador < 0);
 
             Condominio novoCondominio = condominioService.criarCondominio(condominioDTO);
 
