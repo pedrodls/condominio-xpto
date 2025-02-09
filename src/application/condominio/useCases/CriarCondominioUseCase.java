@@ -21,7 +21,7 @@ public class CriarCondominioUseCase {
       if (!(dados.despesaGeral > 0 && dados.despesaComElevador > 0))
         throw new RuntimeException("Despesas não podem ser zero ou negativas");
 
-      this.condominio.setId(0);
+      this.condominio.setId(1);
       this.condominio.setMorada(dados.morada);
       this.condominio.setDataConstrucao(UtilDate.stringToLocalDate(dados.dataConstrucao));
 

@@ -1,33 +1,43 @@
 package presentation.controllers;
 
-import java.io.IOException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import application.condominio.CondominioDTO;
 import application.condominio.CondominioService;
 import domain.condominio.Condominio;
-import infrastructure.repositorios.CondominioRepositorio;
-import presentation.MenuCondominio;
 
 public class CondominioController {
 
-    public static void criar() throws RuntimeException {
+    private static String regex = "^([0-2][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
+    private static Pattern pattern = Pattern.compile(regex);
 
-        Scanner sc = new Scanner(System.in);
+    public static Condominio criar() throws RuntimeException {
 
         try {
+
+            Scanner sc = new Scanner(System.in);
 
             System.out.println("\t-- Criando Condominio --\n");
 
             CondominioDTO condominioDTO = new CondominioDTO();
 
-            CondominioService condominioService = new CondominioService(new CondominioRepositorio());
+            CondominioService condominioService = new CondominioService();
+
+            System.out.flush();
 
             System.out.println("Insira a morada: ");
             condominioDTO.morada = sc.nextLine();
 
-            System.out.println("Insira a data de construção (DD/MM/YYYY): ");
-            condominioDTO.dataConstrucao = sc.nextLine();
+            while (true) {
+                System.out.println("Insira a data de construção (DD/MM/YYYY): ");
+                condominioDTO.dataConstrucao = sc.nextLine();
+
+                if (pattern.matcher(condominioDTO.dataConstrucao).matches()) {
+                    break;
+                } else
+                    System.out.println("Formato inválido! Use DD/MM/YYYY.");
+            }
 
             System.out.println("Insira o valor da despesa geral: ");
             condominioDTO.despesaGeral = sc.nextDouble();
@@ -40,19 +50,15 @@ public class CondominioController {
             System.out.println("Condominio criado: ");
             System.out.println(novoCondominio.toString());
 
-            System.out.println("Prime qualquer tecla para sair...");
-
-            try {
-                System.in.read();
-            } catch (IOException e) {
-            }
-
-            sc.close();
-
-            new MenuCondominio().renderizarMenu();
+            return novoCondominio;
 
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
+            // se der erro perguntar se quer continuar a criar ou quer sair!!
+            // return criar();
+
+            return null;
+
         }
 
     }

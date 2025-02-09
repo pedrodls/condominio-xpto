@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 
+import application.condominio.CondominioService;
+import domain.condominio.Condominio;
 import presentation.MenuGeral;
 
 /**
@@ -17,30 +19,12 @@ public class App {
     public static void main(String[] args) {
         try {
 
-            MenuGeral m = new MenuGeral();
+            Condominio condominio = new CondominioService().buscarCondominio();
 
-            m.validarOpcao();
-
-            // CondominioDTO dadosCondominio = new CondominioDTO("Avenida São Silvestre",
-            // 2424.0, 432.0,"02/10/2020");
-
-            // CondominioService cs = new CondominioService(new CondominioRepositorio());
-
-            // cs.criarCondominio(dadosCondominio);
-
-            // System.out.println(cs.buscarCondominio());
-
-            // System.out.println(cs.atualizarCondominio(dadosCondominio));
-
-            // System.out.println(cs.buscarCondominio());
-
-            // cs.listarFracoes();
-
-            // System.out.println(cs.verificarEquilibrio());
-
-            // System.out.println(cs.somaPercentagemFracoes());
-
-            // System.out.println(cs.somaQuotaMensal());
+            if (condominio == null)
+                new MenuGeral().renderizarMenuInicial();
+            else
+                new MenuGeral(condominio).renderizarMenu();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
