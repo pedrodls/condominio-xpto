@@ -4,7 +4,6 @@ import domain.condominio.Condominio;
 import infrastructure.Persistente;
 import presentation.controllers.CondominioController;
 import utils.Constantes;
-import utils.PauseToRead;
 
 public class MenuGeral {
 
@@ -19,78 +18,69 @@ public class MenuGeral {
     }
 
     private void salvarDados() {
-        // SALVAR COISAS NO DOCUMENTO AQUI
-        new Persistente<Condominio>().set(this.condominio);
+        if (this.condominio == null) {
+            System.out.println("Nenhum condomínio criado. Nada para salvar.");
+            return;
+        }
+
+        Persistente<Condominio> persistente = new Persistente<>();
+        persistente.set(this.condominio);
+        System.out.println("Dados salvos com sucesso!");
     }
 
     public void renderizarMenuInicial() throws RuntimeException {
 
-        Menu opcoes = new Menu(Constantes.novoCondominioMenu, "Menu Geral");
+        char opcao;
 
-        int opcao = opcoes.escolherOpcaoMenu();
+        do {
 
-        switch (opcao) {
-            case 1:
-                this.condominio = CondominioController.criar();
-                // this.salvarDados();
-                System.out.flush();
-                PauseToRead.pause();
-                new MenuGeral(condominio).renderizarMenu();
-            case 2:
+            Menu opcoes = new Menu(Constantes.novoCondominioMenu, "Menu Inicial");
 
-                if (this.condominio != null)
-                    this.salvarDados();
+            opcao = opcoes.escolherOpcaoMenu();
 
-                System.out.println("Até a próxima :)");
+            switch (opcao) {
+                case '1':
+                    this.condominio = CondominioController.criar();
+                    this.renderizarMenu();
+                    return;
+                case '2':
+                    System.out.println("Até a próxima :)");
+                    return; // Encerra o método de forma segura
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+            }
 
-                System.exit(0);
-                break;
-            default:
-                opcao = opcoes.escolherOpcaoMenu();
-        }
+        } while (true);
+
+        // this.renderizarMenu();
     }
 
     public void renderizarMenu() {
 
-        Menu opcoes = new Menu(Constantes.condominioMenu, "Menu Geral");
-
-        int opcao = opcoes.escolherOpcaoMenu();
-
-        switch (opcao) {
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 6:
-
-                break;
-            case 7:
-
-                break;
-            case 8:
-
-                break;
-            case 9:
-                System.out.println("Até a próxima :)");
-
-                // this.salvarDados();
-
-                System.exit(0);
-                break;
-            default:
-                opcao = opcoes.escolherOpcaoMenu();
+        try {
+            System.in.skip(System.in.available());
+        } catch (Exception e) {
         }
-    }
 
+        boolean naoSair = true;
+
+        do {
+
+            char opcao = new Menu(Constantes.condominioMenu, "Menu Geral").escolherOpcaoMenu();
+
+            switch (opcao) {
+                case '1':
+                    System.out.println("Funcionalidade 1");
+                    break;
+                case '9':
+                    salvarDados();
+                    System.out.println("Até a próxima :)");
+                    naoSair = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+            }
+
+        } while (naoSair);
+    }
 }

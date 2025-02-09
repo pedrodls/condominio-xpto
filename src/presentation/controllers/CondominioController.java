@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import application.condominio.CondominioDTO;
 import application.condominio.CondominioService;
 import domain.condominio.Condominio;
+import utils.PauseToRead;
 
 public class CondominioController {
 
@@ -47,18 +48,17 @@ public class CondominioController {
 
             Condominio novoCondominio = condominioService.criarCondominio(condominioDTO);
 
-            System.out.println("Condominio criado: ");
-            System.out.println(novoCondominio.toString());
+
+            System.out.println("Condomínio criado com sucesso!");
+            PauseToRead.pause();
+            System.out.flush();
 
             return novoCondominio;
 
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             // se der erro perguntar se quer continuar a criar ou quer sair!!
-            // return criar();
-
-            return null;
-
+            return criar();
         }
 
     }

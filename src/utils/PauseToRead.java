@@ -8,6 +8,5 @@ public class PauseToRead {
         System.out.println("Pressione Enter para continuar...");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine(); // Aguarda entrada do usuário
-        scanner.close();
     }
 }

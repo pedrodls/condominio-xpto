@@ -11,32 +11,21 @@ public class Menu {
         System.out.println("--" + descricao + "--");
     }
 
-    public int escolherOpcaoMenu() throws RuntimeException {
+    public char escolherOpcaoMenu() throws RuntimeException {
 
-        try {
+        char opcao;
 
-            Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-            System.out.flush();
-
-            int opcao = -1;
-
-            for (int i = 0; i < menus.length; i++) {
-                System.out.println((i + 1) + " - " + menus[i]);
-            }
-
-            System.out.printf("Escolha uma opção: ");
-
-            opcao = sc.nextInt();
-
-            System.out.flush();
-            
-            return opcao;
-
-        } catch (RuntimeException e) {
-
-            return -1;
-
+        for (int i = 0; i < menus.length; i++) {
+            System.out.println((i + 1) + " - " + menus[i]);
         }
+
+        System.out.print("Escolha uma opção: ");
+
+        opcao = sc.next().charAt(0);
+
+        
+        return opcao;
     }
 }
