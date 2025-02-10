@@ -43,7 +43,7 @@ public class Garagem extends Fracao {
     public String toString() {
         return super.toString() +
         "\tNúmero de viaturas: " + numeroViaturas + "\n" +
-        "\tServiço de lavagem: " + servicoDeLavagem + "\n" +
+        "\tServiço de lavagem: " + (servicoDeLavagem ? "Sim" : "Não") + "\n" +
         "\tTipo de fracção : " + tipoFracao + "\n" +
         "}";
     }
