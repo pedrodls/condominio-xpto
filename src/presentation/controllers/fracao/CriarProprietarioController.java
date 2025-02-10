@@ -37,7 +37,7 @@ public class CriarProprietarioController {
             proprietarioDTO.morada = sc.nextLine();
 
             do {
-                System.out.printf("Telefone(9XXXXXXXX | 22XXXXXXX): ");
+                System.out.printf("Telefone(9XXXXXXXX | 222XXXXXX): ");
                 proprietarioDTO.telefone = sc.nextLine();
 
                 if (!UtilValidator.validarNumeroContacto(proprietarioDTO.telefone))
