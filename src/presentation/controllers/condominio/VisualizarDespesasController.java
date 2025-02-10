@@ -29,6 +29,12 @@ public class VisualizarDespesasController {
                         System.out.flush();
                         break;
                     case '3':
+                        System.out.println("Despesa Geral = " + condominio.getDespesaGeral());
+                        System.out.println("Despesa com o elevador = " + condominio.getDespesaComElevador());
+                        PauseToRead.pause();
+                        System.out.flush();
+                        break;
+                    case '4':
                         naoSair = false;
                         break;
                     default:

@@ -144,14 +144,17 @@ public class Condominio extends Entidade implements ICondominio {
     }
 
     public void listFracoes() {
-        System.out.println("----------Fracções que compõem o condomínio----------");
-        System.out.println(" ");
+        if(fracoes != null){
+                System.out.println("----------Fracções que compõem o condomínio----------");
+            System.out.println(" ");
 
-        for (Fracao fracao : fracoes) {
-            System.out.println(fracao);
-            System.out.println(" ");
-            System.out.println(" ");
-        }
+            for (Fracao fracao : fracoes) {
+                System.out.println(fracao);
+                System.out.println(" ");
+                System.out.println(" ");
+            }
+        } else { System.out.println("O condomínio ainda não possui fracções."); }
+        
     }
 
     public void setPercentagemFracoes() throws RuntimeException {
@@ -204,14 +207,26 @@ public class Condominio extends Entidade implements ICondominio {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\tmorada: " + this.getMorada() + "\n" +
-                "\tdespesaGeral: " + this.getDespesaGeral() + "\n" +
-                "\tdespesaComElevador: " + this.getDespesaComElevador() + "\n" +
-                "\tdataDeConstrucao: " + this.getDataConstrucao() + "\n" +
-                "\tareaTotal: " + areaTotal + "\n" +
-                "\tnumeroFracoes: " + (this.fracoes == null ? 0 : this.fracoes.size()) + "\n" +
+        if(fracoes != null){
+            return super.toString() +
+                "\tMorada: " + this.getMorada() + "\n" +
+                "\tDespesa geral: " + this.getDespesaGeral() + "\n" +
+                "\tDespesa com elevador: " + this.getDespesaComElevador() + "\n" +
+                "\tData de construção: " + this.getDataConstrucao() + "\n" +
+                "\tÁrea total: " + areaTotal + "\n" +
+                "\tNúmero de fracções: " + this.fracoes.size() + "\n" +
                 "}";
+        } else {
+            return super.toString() +
+                "\tMorada: " + this.getMorada() + "\n" +
+                "\tDespesa geral: " + this.getDespesaGeral() + "\n" +
+                "\tDespesa com elevador: " + this.getDespesaComElevador() + "\n" +
+                "\tData de construção: " + this.getDataConstrucao() + "\n" +
+                "\tÁrea total: " + areaTotal + "\n" +
+                "\tNúmero de fracções: 0" + "\n" +
+                "}";
+        }
+        
     }
 
 }

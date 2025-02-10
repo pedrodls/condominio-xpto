@@ -80,12 +80,15 @@ public class MenuGeral {
                     VisualizarDespesasController.visualizar(condominio);
                     break;
                 case '6':
+                AtualizarDespesasController.visualizar(condominio);
+                break;
+                case '7':
                     CalcularCotasMensaisController.visualizar(condominio);
                     break;
-                case '7':
+                case '8':
                     VerificarPercentagenFracoesController.visualizar(condominio);
                     break;
-                case '8':
+                case '9':
                     salvarDados();
                     System.out.println("Até a próxima :)");
                     naoSair = false;

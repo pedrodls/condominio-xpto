@@ -15,42 +15,61 @@ public class AtualizarDespesasController {
         try {
             Scanner sc = new Scanner(System.in);
             boolean naoSair = true;
+            
+            Double temp;
 
             do {
 
                 char opcao = new Menu(Constantes.despesaMenu, "Actualização das Despesas").escolherOpcaoMenu();
-
-
-                // if(opcao != 2){
-                //     
-                //     FuncoesMenu.condominio.setDespesaGeral(sc.nextDouble());
-                // }
-                // if(opcao != 1){
                     
 
                 switch (opcao) {
                     case '1':
-                        System.out.println("Novo valor da despesa Geral (casas decimais" +
+
+                        do{
+                            System.out.println("Novo valor da despesa Geral (casas decimais" +
                              "devem ser separadas por um ponto, exemplo -> 9.5): ");
-                        condominio.setDespesaGeral(sc.nextDouble());
+
+                            temp = sc.nextDouble();
+                        }while(temp < 0);
+                        
+                        condominio.setDespesaGeral(temp);
                         PauseToRead.pause();
                         System.out.flush();
                         break;
                     case '2':
-                        System.out.println("Novo valor da despesa com o elevador (casas decimais" +
-                        "devem ser separadas por um ponto, exemplo -> 9.5): ");
-                        condominio.setDespesaComElevador(sc.nextDouble());
+
+                        do{
+                            System.out.println("Novo valor da despesa com o elevador (casas decimais" +
+                                "devem ser separadas por um ponto, exemplo -> 9.5): ");
+
+                            temp = sc.nextDouble();
+                        }while(temp < 0);
+                        
+                        condominio.setDespesaComElevador(temp);
                         PauseToRead.pause();
                         System.out.flush();
                         break;
                     case '3':
-                        System.out.println("Novo valor da despesa Geral (casas decimais" +
-                        "devem ser separadas por um ponto, exemplo -> 9.5): ");
-                        condominio.setDespesaGeral(sc.nextDouble());
 
-                        System.out.println("Novo valor da despesa com o elevador (casas decimais" +
-                        "devem ser separadas por um ponto, exemplo -> 9.5): ");
-                        condominio.setDespesaComElevador(sc.nextDouble());
+                        do{
+                            System.out.println("Novo valor da despesa Geral (casas decimais" +
+                            "devem ser separadas por um ponto, exemplo -> 9.5): ");
+
+                            temp = sc.nextDouble();
+                        }while(temp < 0);
+                        
+                        condominio.setDespesaGeral(temp);
+
+                        do{
+                            System.out.println("Novo valor da despesa com o elevador (casas decimais" +
+                                "devem ser separadas por um ponto, exemplo -> 9.5): ");
+
+                            temp = sc.nextDouble();
+                        }while(temp < 0);
+                        
+                        condominio.setDespesaComElevador(temp);
+
                         PauseToRead.pause();
                         System.out.flush();
                         break;
