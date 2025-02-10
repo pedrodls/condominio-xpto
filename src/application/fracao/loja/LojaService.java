@@ -11,7 +11,7 @@ public class LojaService extends FracaoService<Loja, LojaDTO> {
     }
 
     @Override
-    public Loja criar(LojaDTO dados) throws RuntimeException {
+    public Loja add(LojaDTO dados) throws RuntimeException {
         try {
             return (Loja) this.condominio.addFracao(new CriarLojaUseCase(dados).validar());
         } catch (Exception e) {

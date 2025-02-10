@@ -28,6 +28,7 @@ public class CriarArrecadacaoUseCase {
       // this.arrecadacao = new Loja(dados.area, 0.0, dados.localizacao, );
       // linha acima comentada pq falta o ultimo parametro, o proprietario
 
+      this.arrecadacao.setId(dados.id);
       this.arrecadacao.setArea(dados.area);
       this.arrecadacao.setLocalizacao(dados.localizacao);
       this.arrecadacao.setProprietario(dados.proprietario);

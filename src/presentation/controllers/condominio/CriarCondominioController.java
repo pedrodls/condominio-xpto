@@ -7,11 +7,9 @@ import application.condominio.CondominioDTO;
 import application.condominio.CondominioService;
 import domain.condominio.Condominio;
 import utils.PauseToRead;
+import utils.UtilDate;
 
 public class CriarCondominioController {
-
-    private static String regex = "^([0-2][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
-    private static Pattern pattern = Pattern.compile(regex);
 
     public static Condominio criar() {
 
@@ -31,7 +29,7 @@ public class CriarCondominioController {
                 System.out.print("Insira a data de construção (DD/MM/YYYY): ");
                 condominioDTO.dataConstrucao = sc.nextLine();
 
-                if (pattern.matcher(condominioDTO.dataConstrucao).matches()) {
+                if (UtilDate.validarData(condominioDTO.dataConstrucao)) {
                     break;
                 } else {
                     System.out.println("Formato inválido! Use DD/MM/YYYY.");

@@ -67,7 +67,7 @@ public class Fracao extends Entidade implements IFracao {
                 "\tarea: " + this.area + "\n" +
                 "\tpercentagemArea: " + this.percentagemArea + "\n" +
                 "\tlocalizacao: " + this.localizacao + "\n" +
-                "\tproprietario: " + this.proprietario + "\n";
+                "\tproprietario: \n\t{\t" + this.proprietario.toString() + "\n";
     }
 
     @Override

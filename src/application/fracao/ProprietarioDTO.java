@@ -4,14 +4,17 @@
  */
 package application.fracao;
 
-import domain.proprietario.Proprietario;
+import java.util.Date;
 
 /**
  *
  * @author 20220204
  */
- public class FracaoDTO {
-    public double area;
-    public String localizacao;
-    public Proprietario proprietario;
+ public class ProprietarioDTO {
+    public String nome;
+    public String morada;
+    public String telefone;
+    public String telemovel;
+    public String email;
+    public Date dataNascimento;
 }

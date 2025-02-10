@@ -11,7 +11,7 @@ public class ArrecadacaoService extends FracaoService<Arrecadacao, ArrecadacaoDT
     }
 
     @Override
-    public Arrecadacao criar(ArrecadacaoDTO dados) throws RuntimeException {
+    public Arrecadacao add(ArrecadacaoDTO dados) throws RuntimeException {
         try {
             return (Arrecadacao) this.condominio.addFracao(new CriarArrecadacaoUseCase(dados).validar());
         } catch (Exception e) {

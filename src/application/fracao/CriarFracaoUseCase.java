@@ -1,30 +1,33 @@
 package application.fracao;
 
+import java.util.List;
+
+import domain.condominio.Condominio;
 import domain.fracao.Fracao;
+import domain.proprietario.Proprietario;
 
 public class CriarFracaoUseCase {
 
   private Fracao fracaoNova;
   private FracaoDTO dadosNovos;
+  private Condominio condominio;
 
-  public CriarFracaoUseCase(FracaoDTO dadosNovos) {
+  public CriarFracaoUseCase(FracaoDTO dadosNovos, Condominio condominio) {
     this.dadosNovos = dadosNovos;
     this.fracaoNova = new Fracao();
-
+    this.condominio = condominio;
   }
 
   public Fracao validar() throws RuntimeException {
 
     try {
 
-      if (dadosNovos.area > 0)
-        this.fracaoNova.setArea(dadosNovos.area);
+      List<Fracao> fracoes = this.condominio.getFracoes();
 
-      if (dadosNovos.localizacao.length() > 0)
-        this.fracaoNova.setLocalizacao(dadosNovos.localizacao);
-
-      if (dadosNovos.proprietario != null)
-        this.fracaoNova.setProprietario(dadosNovos.proprietario);
+      this.fracaoNova.setId(fracoes == null ? 1 : fracoes.size() + 1);
+      this.fracaoNova.setArea(dadosNovos.area);
+      this.fracaoNova.setLocalizacao(dadosNovos.localizacao);
+      this.fracaoNova.setProprietario(dadosNovos.proprietario);
 
       return this.fracaoNova;
 

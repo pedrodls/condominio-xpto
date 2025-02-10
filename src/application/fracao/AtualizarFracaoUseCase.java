@@ -16,14 +16,9 @@ public class AtualizarFracaoUseCase {
 
         try {
 
-            if (dadosNovos.area > 0)
-                this.fracaoAntiga.setArea(dadosNovos.area);
-
-            if (dadosNovos.localizacao.length() > 0)
-                this.fracaoAntiga.setLocalizacao(dadosNovos.localizacao);
-
-            if (dadosNovos.proprietario != null)
-                this.fracaoAntiga.setProprietario(dadosNovos.proprietario);
+            this.fracaoAntiga.setArea(dadosNovos.area);
+            this.fracaoAntiga.setLocalizacao(dadosNovos.localizacao);
+            this.fracaoAntiga.setProprietario(dadosNovos.proprietario);
 
             return this.fracaoAntiga;
 

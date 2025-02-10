@@ -36,4 +36,15 @@ public class Constantes {
                         "Despesa com o elevador",
                         "Sair"
         };
+
+        public static final String[] MENU_FRACAO = new String[] {
+                        "Ver Fração",
+                        "Inserir Fração",
+                        "Remover Fração",
+                        "Listar  Frações",
+                        "Atualizar Fração",
+                        "Sair"
+        };
+
+        public static String[] MENU_TIPO_FRACAO = new String[] { "Apartamento", "Arrecadação", "Garagem", "Loja", "Sair" };
 }

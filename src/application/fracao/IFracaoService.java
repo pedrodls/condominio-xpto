@@ -4,7 +4,7 @@ import domain.fracao.Fracao;
 
 public interface IFracaoService<T extends Fracao, K extends FracaoDTO> {
 
-    public T criar(K dados) throws RuntimeException;
+    public T add(K dados) throws RuntimeException;
 
     public T buscar(int id) throws RuntimeException;
 

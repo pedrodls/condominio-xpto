@@ -19,7 +19,7 @@ public class Entidade implements IEntidade {
 
     @Override
     public String toString() {
-        return "\n{\n\tid: " + this.id + "\n";
+        return "{\n\tid: " + this.id + "\n";
     }
 
 }

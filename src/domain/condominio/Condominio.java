@@ -18,7 +18,8 @@ public class Condominio extends Entidade implements ICondominio {
     private List<Proprietario> proprietarios;
 
     public Condominio() {
-
+        this.fracoes = new ArrayList<>();
+        this.proprietarios = new ArrayList<>();
     }
 
     public Condominio(String morada, double despesaGeral, double despesaComElevador, String dataConstrucao,
@@ -73,6 +74,15 @@ public class Condominio extends Entidade implements ICondominio {
         return this.proprietarios;
     }
 
+    public Proprietario getProprietario(int id) {
+        if (this.proprietarios != null)
+            for (Proprietario proprietario : this.proprietarios)
+                if (id == proprietario.getId())
+                    return proprietario;
+
+        return null;
+    }
+
     public List<Fracao> getFracoes() {
         return this.fracoes;
     }
@@ -122,10 +132,10 @@ public class Condominio extends Entidade implements ICondominio {
     public Fracao buscarFracao(int id) throws RuntimeException {
         try {
 
-            return this.fracoes.get(id);
+            return this.fracoes.get(id - 1);
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Fracao não encontrada!");
         }
     }
 
@@ -187,8 +197,8 @@ public class Condominio extends Entidade implements ICondominio {
     public double calculateSomaQuotas() {
 
         if (this.fracoes == null)
-        return 0;
-        
+            return 0;
+
         double temp = 0.0;
 
         for (Fracao fracao : fracoes) {

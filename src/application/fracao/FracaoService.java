@@ -5,7 +5,7 @@ import java.util.List;
 import domain.condominio.Condominio;
 import domain.fracao.Fracao;
 
-public class FracaoService<T extends Fracao, K extends FracaoDTO> implements IFracaoService<T, K> {
+public abstract class FracaoService<T extends Fracao, K extends FracaoDTO> implements IFracaoService<T, K> {
 
     protected Condominio condominio;
 
@@ -13,10 +13,11 @@ public class FracaoService<T extends Fracao, K extends FracaoDTO> implements IFr
         this.condominio = condominio;
     }
 
+    //Retorna a fração criada de qualquer tipo e guarda no condominio
     @SuppressWarnings("unchecked")
-    public T criar(K dados) throws RuntimeException {
+    public T add(K dados) throws RuntimeException {
         try {
-            return (T) this.condominio.addFracao(new CriarFracaoUseCase(dados).validar());
+            return (T) this.condominio.addFracao(new CriarFracaoUseCase(dados, this.condominio).validar());
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }

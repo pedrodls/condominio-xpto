@@ -1,5 +1,6 @@
 package domain.proprietario;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import domain.helpers.Entidade;
 
@@ -79,4 +80,17 @@ public class Proprietario extends Entidade implements IProprietario {
         this.dataNascimento = dataNascimento;
     }
 
+    @Override
+    public String toString() {
+
+        return 
+                "\n\t\tid: " + this.getId() + "\n" +
+                "\t\tnome: " + this.nome + "\n" +
+                "\t\tmorada: " + this.morada + "\n" +
+                "\t\ttelefone: " + this.telefone + "\n" +
+                "\t\ttelemovel: " + this.telemovel + "\n" +
+                "\t\temail: " + this.email + "\n" +
+                "\t\tdataNascimento: " + this.dataNascimento + "\n" +
+                "\t}";
+    }
 }

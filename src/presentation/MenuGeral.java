@@ -1,8 +1,11 @@
 package presentation;
 
+import java.text.ParseException;
+
 import domain.condominio.Condominio;
 import infrastructure.Persistente;
 import presentation.controllers.condominio.*;
+import presentation.controllers.fracao.FracaoController;
 import utils.Constantes;
 
 public class MenuGeral {
@@ -28,7 +31,7 @@ public class MenuGeral {
         System.out.println("Dados salvos com sucesso!");
     }
 
-    public void renderizarMenuInicial() throws RuntimeException {
+    public void renderizarMenuInicial() throws RuntimeException, ParseException {
 
         char opcao;
 
@@ -55,7 +58,7 @@ public class MenuGeral {
         // this.renderizarMenu();
     }
 
-    public void renderizarMenu() {
+    public void renderizarMenu() throws RuntimeException, ParseException {
 
         boolean naoSair = true;
 
@@ -65,7 +68,7 @@ public class MenuGeral {
 
             switch (opcao) {
                 case '1':
-                    System.out.println("Funcionalidade 1");
+                    FracaoController.visualizar(condominio);
                     break;
                 case '2':
                     System.out.println("Funcionalidade 2");
@@ -77,7 +80,7 @@ public class MenuGeral {
                     VisualizarCondominioController.visualizar(this.condominio);
                     break;
                 case '5':
-                    VisualizarDespesasController.visualizar(condominio);
+                    FracaoController.visualizar(condominio);
                     break;
                 case '6':
                     CalcularCotasMensaisController.visualizar(condominio);
