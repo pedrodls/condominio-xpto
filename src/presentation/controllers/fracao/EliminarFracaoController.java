@@ -8,9 +8,9 @@ import domain.fracao.Fracao;
 
 import utils.PauseToRead;
 
-public class VerFracaoController {
+public class EliminarFracaoController {
 
-    public static void visualizar(Condominio condominio) throws RuntimeException, ParseException {
+    public static void eliminar(Condominio condominio) throws RuntimeException, ParseException {
 
         try {
 
@@ -25,14 +25,12 @@ public class VerFracaoController {
             int id = sc.nextInt();
             sc.nextLine();
 
-            Fracao fracao = condominio.buscarFracao(id);
-
-            if (fracao == null) {
+            if (!condominio.retirarFracao(id)) {
                 System.out.println("Fração não encontrada!");
-            } else {
-                System.out.println("Dados da Fração: ");
-                System.out.println(fracao.toString());
+                return;
             }
+
+            System.out.println("Fração eliminada com sucesso: ");
 
         } catch (RuntimeException e) {
             System.out.println(e.getMessage() != null ? e.getMessage() : "Erro de entrada!");

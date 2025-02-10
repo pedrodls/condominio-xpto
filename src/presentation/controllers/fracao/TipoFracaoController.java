@@ -21,16 +21,17 @@ public class TipoFracaoController {
 
                 switch (opcao) {
                     case '1':
-                        //CriarApartamentoController();
+                        CriarApartamentoController.criar(condominio);
                         break;
                     case '2':
                         CriarArrecadacaoController.criar(condominio);
                         break;
                     case '3':
-                        //CriarGaragemController();
+                        CriarGaragemController.criar(condominio);
                         break;
                     case '4':
-                        //CriarLojaController();
+                        CriarLojaController.criar(condominio);
+                        ;
                         break;
                     case '5':
                         naoSair = false;

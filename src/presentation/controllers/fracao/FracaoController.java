@@ -26,7 +26,10 @@ public class FracaoController {
                         TipoFracaoController.visualizar(condominio);
                         break;
                     case '3':
-
+                        EliminarFracaoController.eliminar(condominio);
+                        break;
+                    case '4':
+                        /* EliminarFracaoController.eliminar(condominio); */
                         break;
                     case '6':
                         naoSair = false;
