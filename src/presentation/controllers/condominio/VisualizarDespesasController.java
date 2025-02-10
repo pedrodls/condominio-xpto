@@ -15,26 +15,26 @@ public class VisualizarDespesasController {
 
             do {
 
-                char opcao = new Menu(Constantes.despesaMenu, "Visualização das Despesas").escolherOpcaoMenu();
+                String opcao = new Menu(Constantes.despesaMenu, "Visualização das Despesas").escolherOpcaoMenu();
 
                 switch (opcao) {
-                    case '1':
+                    case "1":
                         System.out.println("Despesa Geral = " + condominio.getDespesaGeral());
                         PauseToRead.pause();
                         System.out.flush();
                         break;
-                    case '2':
+                    case "2":
                         System.out.println("Despesa com o elevador = " + condominio.getDespesaComElevador());
                         PauseToRead.pause();
                         System.out.flush();
                         break;
-                    case '3':
+                    case "3":
                         System.out.println("Despesa Geral = " + condominio.getDespesaGeral());
                         System.out.println("Despesa com o elevador = " + condominio.getDespesaComElevador());
                         PauseToRead.pause();
                         System.out.flush();
                         break;
-                    case '4':
+                    case "4":
                         naoSair = false;
                         break;
                     default:

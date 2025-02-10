@@ -17,17 +17,17 @@ public class Constantes {
         // Menu se tiver condominio criado!
         public static final String[] condominioMenu = new String[] {
                         "Fracões",
+                                // "Inserir fracção",
+                                // "Retirar fracção",
+                                //"Listar fracções" (ESTA COMO OPCAO ZERO NO MENU GERAL, DEPOIS DA OPCAO 8)
                         "Proprietários",
                         "Atualizar condominio",
                         "Visualisar condominio",
-                        // "Inserir fracção",
-                        // "Retirar fracção",
-                        // "Listar fracções",
                         "Visualisar os valores das despesas",
                         "Actualizar os valores das despesas",
-                        // "Calcular a soma das quotas mensais",
                         "Calcular  a soma das quotas mensais",
                         "Verificar a soma das percentagens das fracções",
+                        "Excluir condomínio",
                         "Sair",
 
         };

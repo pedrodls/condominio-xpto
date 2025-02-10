@@ -25,12 +25,12 @@ public class MenuGeral {
 
         Persistente<Condominio> persistente = new Persistente<>();
         persistente.set(this.condominio);
-        System.out.println("Dados salvos com sucesso!");
+        // System.out.println("Dados salvos com sucesso!");
     }
 
     public void renderizarMenuInicial() throws RuntimeException {
 
-        char opcao;
+        String opcao;
 
         do {
 
@@ -39,11 +39,11 @@ public class MenuGeral {
             opcao = opcoes.escolherOpcaoMenu();
 
             switch (opcao) {
-                case '1':
+                case "1":
                     this.condominio = CriarCondominioController.criar();
                     this.renderizarMenu();
                     return;
-                case '2':
+                case "2":
                     System.out.println("Até a próxima :)");
                     return; // Encerra o método de forma segura
                 default:
@@ -58,37 +58,50 @@ public class MenuGeral {
     public void renderizarMenu() {
 
         boolean naoSair = true;
+        String opcao = new Menu(Constantes.condominioMenu, "Menu Geral").escolherOpcaoMenu();
+
 
         do {
 
-            char opcao = new Menu(Constantes.condominioMenu, "Menu Geral").escolherOpcaoMenu();
 
             switch (opcao) {
-                case '1':
+                case "1":
                     System.out.println("Funcionalidade 1");
                     break;
-                case '2':
+                case "2":
                     System.out.println("Funcionalidade 2");
                     break;
-                case '3':
+                case "3":
                     this.condominio = AtualizarCondominioController.atualizar(this.condominio);
                     break;
-                case '4':
+                case "4":
                     VisualizarCondominioController.visualizar(this.condominio);
                     break;
-                case '5':
+                case "5":
                     VisualizarDespesasController.visualizar(condominio);
                     break;
-                case '6':
-                AtualizarDespesasController.visualizar(condominio);
+                case "6":
+                    AtualizarDespesasController.visualizar(condominio);
                 break;
-                case '7':
+                case "7":
                     CalcularCotasMensaisController.visualizar(condominio);
                     break;
-                case '8':
+                case "8":
                     VerificarPercentagenFracoesController.visualizar(condominio);
                     break;
-                case '9':
+
+                //PÔR NO MENU DAS FRACOES
+                case "0":
+                    ListarFracoesController.visualizar(condominio);
+                    break;
+                //-------------------------------------
+
+                case "9":
+                    condominio = null;
+                    System.out.println("Condomínio excluído com sucesso! 9\n");
+                    new MenuGeral().renderizarMenuInicial();
+                    break;
+                case "10":
                     salvarDados();
                     System.out.println("Até a próxima :)");
                     naoSair = false;
@@ -97,6 +110,6 @@ public class MenuGeral {
                     System.out.println("Opção inválida! Tente novamente.");
             }
 
-        } while (naoSair);
+        } while (naoSair || opcao == "9");
     }
 }

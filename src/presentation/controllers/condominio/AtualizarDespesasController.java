@@ -20,11 +20,11 @@ public class AtualizarDespesasController {
 
             do {
 
-                char opcao = new Menu(Constantes.despesaMenu, "Actualização das Despesas").escolherOpcaoMenu();
+                String opcao = new Menu(Constantes.despesaMenu, "Actualização das Despesas").escolherOpcaoMenu();
                     
 
                 switch (opcao) {
-                    case '1':
+                    case "1":
 
                         do{
                             System.out.println("Novo valor da despesa Geral (casas decimais" +
@@ -37,7 +37,7 @@ public class AtualizarDespesasController {
                         PauseToRead.pause();
                         System.out.flush();
                         break;
-                    case '2':
+                    case "2":
 
                         do{
                             System.out.println("Novo valor da despesa com o elevador (casas decimais" +
@@ -50,7 +50,7 @@ public class AtualizarDespesasController {
                         PauseToRead.pause();
                         System.out.flush();
                         break;
-                    case '3':
+                    case "3":
 
                         do{
                             System.out.println("Novo valor da despesa Geral (casas decimais" +
@@ -73,7 +73,7 @@ public class AtualizarDespesasController {
                         PauseToRead.pause();
                         System.out.flush();
                         break;
-                    case '4':
+                    case "4":
                         naoSair = false;
                         break;
                     default:
