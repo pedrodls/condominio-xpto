@@ -21,7 +21,7 @@ public class TipoFracaoController {
 
                 switch (opcao) {
                     case "1":
-                        //CriarApartamentoController();
+                        CriarApartamentoController.criar(condominio);
                         break;
                     case "2":
                         CriarArrecadacaoController.criar(condominio);
