@@ -39,7 +39,7 @@ public class CriarGaragemController {
 
             do {
 
-                System.out.printf("O apartamento tem terraço? 1-Sim 2-Não: ");
+                System.out.printf("Tem serviço de lavagem? 1-Sim 2-Não: ");
 
                 char opcao = sc.next().charAt(0);
 
