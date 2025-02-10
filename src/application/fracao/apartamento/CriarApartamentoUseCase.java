@@ -13,6 +13,7 @@ public class CriarApartamentoUseCase {
     
     public CriarApartamentoUseCase (ApartamentoDTO dados) {
         
+      this.apartamento = new Apartamento();
         this.dados = dados;
         
     }
