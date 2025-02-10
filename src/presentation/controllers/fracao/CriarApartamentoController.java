@@ -52,13 +52,13 @@ public class CriarApartamentoController {
             } while (true);
 
             do {
-                System.out.println("Numero de casas de Banho: ");
+                System.out.print("Numero de casas de Banho: ");
                 apartamentoDTO.numeroCasaBanhos = sc.nextInt();
                 sc.nextLine();
             } while (apartamentoDTO.numeroCasaBanhos < 0);
 
             do {
-                System.out.println("Numero de Varandas: ");
+                System.out.print("Numero de Varandas: ");
                 apartamentoDTO.numeroVarandas = sc.nextInt();
                 sc.nextLine();
             } while (apartamentoDTO.numeroVarandas < 0);

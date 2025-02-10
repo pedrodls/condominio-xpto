@@ -60,11 +60,17 @@ public class Apartamento extends Fracao {
 
     @Override
     public String toString() {
+        String temp;
+
+        if(isTerraco() == true){
+            temp = "Sim";
+        } else { temp = "Não"; }
+
         return super.toString() +
         "\tTipo de apartamento: " + tipo + "\n" +
         "\tNúmero de casas de banho: " + numeroCasaBanhos + "\n" +
         "\tNúmero de varandas: " + numeroVarandas + "\n" +
-        "\tTerraço: " + terraco + "\n" +
+        "\tTem terraço: " + temp + "\n" +
         "\tTipo de fracção: " + tipoFracao + "\n" +
         "}";
     }
