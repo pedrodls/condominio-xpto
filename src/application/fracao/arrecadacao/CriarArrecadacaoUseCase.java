@@ -1,6 +1,5 @@
-package application.fracao.arrecadacao.useCases;
+package application.fracao.arrecadacao;
 
-import application.fracao.arrecadacao.ArrecadacaoDTO;
 import domain.fracao.arrecadacao.Arrecadacao;
 
 public class CriarArrecadacaoUseCase {
@@ -13,7 +12,7 @@ public class CriarArrecadacaoUseCase {
     this.arrecadacao = new Arrecadacao();
   }
 
-  public Arrecadacao getArrecadacao() throws RuntimeException {
+  public Arrecadacao validar() throws RuntimeException {
 
     try {
 
@@ -35,6 +34,7 @@ public class CriarArrecadacaoUseCase {
       this.arrecadacao.setPortaBlindada(dados.portaBlindada);
 
       return this.arrecadacao;
+
     } catch (Exception e) {
       throw new RuntimeException(e);
     }

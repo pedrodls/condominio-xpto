@@ -1,11 +1,12 @@
 package domain.fracao.loja;
 
 import domain.fracao.Fracao;
-import domain.proprietario.IProprietario;
+import domain.proprietario.Proprietario;
 
 public class Loja extends Fracao {
 
-    public Loja(int area, String localizacao, IProprietario proprietario) {
+    public Loja(){}
+    public Loja(int area, String localizacao, Proprietario proprietario) {
         super(area, localizacao, proprietario);
     }
 

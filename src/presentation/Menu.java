@@ -2,54 +2,30 @@ package presentation;
 
 import java.util.Scanner;
 
-public class Menu implements IMenu {
+public class Menu {
 
     private String[] menus;
-    private int escolha;
-   
-    Scanner sc;
 
     public Menu(String[] opcoes, String descricao) {
         this.menus = opcoes;
         System.out.println("--" + descricao + "--");
     }
 
-    public int getEscolha() {
-        return escolha;
-    }
+    public char escolherOpcaoMenu() throws RuntimeException {
 
-    private void setEscolha(int escolha) {
-        this.escolha = escolha;
-    }
+        char opcao;
 
-    public void renderizarMenu() throws RuntimeException {
+        Scanner sc = new Scanner(System.in);
 
-        int opcao = -1;
-
-        sc = new Scanner(System.in);
-
-        try {
-
-            for (int i = 0; i < menus.length; i++) {
-                System.out.println(i + 1 + " - " + menus[i]);
-            }
-
-            System.out.println("Escolha uma opção: ");
-            opcao = sc.nextInt();
-
-            if (opcao > menus.length || opcao < 0)
-                throw new RuntimeException();
-
-            this.setEscolha(opcao);
-
-        } catch (RuntimeException e) {
-
-            System.out.flush();
-
-            System.out.println("Erro na escolha da opção...");
-
-            this.renderizarMenu();
-
+        for (int i = 0; i < menus.length; i++) {
+            System.out.println((i + 1) + " - " + menus[i]);
         }
+
+        System.out.print("Escolha uma opção: ");
+
+        opcao = sc.next().charAt(0);
+
+        
+        return opcao;
     }
 }

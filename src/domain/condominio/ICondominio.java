@@ -1,6 +1,5 @@
 package domain.condominio;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import domain.fracao.Fracao;
@@ -22,10 +21,20 @@ public interface ICondominio extends IEntidade {
 
     public double getAreaTotal();
 
-    public LocalDate getDataConstrucao();
+    public String getDataConstrucao();
 
-    public void setDataConstrucao(LocalDate dataConstrucao);
+    public void setDataConstrucao(String dataConstrucao);
 
     public List<Fracao> getFracoes();
+
+    public void setPercentagemFracoes();
+
+    public Fracao addFracao(Fracao fracao) throws RuntimeException;
+
+    public boolean retirarFracao(int id) throws RuntimeException;
+
+    public Fracao buscarFracao(int id) throws RuntimeException;
+
+    public Fracao atualizarFracao(Fracao fracaoAtualizada) throws RuntimeException;
 
 }

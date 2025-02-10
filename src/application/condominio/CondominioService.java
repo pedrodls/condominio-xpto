@@ -1,21 +1,21 @@
 package application.condominio;
 
-import application.IRepositorio;
 import application.condominio.useCases.AtualizarCondominioUseCase;
 import application.condominio.useCases.CriarCondominioUseCase;
 import domain.condominio.Condominio;
+import infrastructure.Persistente;
 
 public class CondominioService {
 
-    private IRepositorio<Condominio> condominioRepositorio;
+    Persistente<Condominio> persistente;
 
-    public CondominioService(IRepositorio<Condominio> condominioRepositorio) {
-        this.condominioRepositorio = condominioRepositorio;
+    public CondominioService() {
+        this.persistente = new Persistente<Condominio>();
     }
 
     public Condominio buscarCondominio() throws RuntimeException {
         try {
-            return this.condominioRepositorio.findById(0);
+            return persistente.get();
         } catch (Exception e) {
             return null;
         }
@@ -24,26 +24,22 @@ public class CondominioService {
     public Condominio criarCondominio(CondominioDTO dados) throws RuntimeException {
         try {
 
-            Condominio condominio = this.buscarCondominio();
-
-            if (condominio != null)
-                throw new RuntimeException("Condominio já existe, não pode criar outra vez");
-
-            return this.condominioRepositorio.create(new CriarCondominioUseCase(dados).getCondominio());
+            return new CriarCondominioUseCase(dados).getCondominio();
 
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
 
-    public Condominio atualizarCondominio(CondominioDTO dados) throws RuntimeException {
+    public Condominio atualizarCondominio(CondominioDTO dados, Condominio condominio) throws RuntimeException {
         try {
-            return this.condominioRepositorio
-                    .update(new AtualizarCondominioUseCase(this.buscarCondominio(), dados).validar());
+
+            Condominio condominioAtualizado = new AtualizarCondominioUseCase(condominio, dados).validar();
+
+            return condominioAtualizado;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    
 }
