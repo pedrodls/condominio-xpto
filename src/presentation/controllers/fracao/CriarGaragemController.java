@@ -33,7 +33,7 @@ public class CriarGaragemController {
             do {
                 System.out.println("Numero de Viaturas: ");
                 garagemDTO.numeroViaturas = sc.nextInt();
-            } while (garagemDTO.numeroViaturas > 0);
+            } while (!(garagemDTO.numeroViaturas > 0));
 
             sc.nextLine();
 
