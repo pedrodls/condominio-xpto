@@ -12,6 +12,11 @@ public class Apartamento extends Fracao {
 
     final static String tipoFracao = "Apartamento";
 
+    // Para criar um objecto Nulo
+    public Apartamento() {
+        super();
+    }
+
     public Apartamento(int area, String localizacao, Proprietario proprietario, TipoApartamento tipo,
             int numeroCasaBanhos, int numeroVarandas, boolean terraco) {
         super(area, localizacao, proprietario);

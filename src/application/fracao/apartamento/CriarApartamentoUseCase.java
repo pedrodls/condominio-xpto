@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package application.fracao.apartamento.useCases;
+package application.fracao.apartamento;
 
-import application.fracao.apartamento.ApartamentoDTO;
 import domain.fracao.apartamento.Apartamento;
 
 public class CriarApartamentoUseCase {
