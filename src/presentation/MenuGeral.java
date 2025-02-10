@@ -105,6 +105,6 @@ public class MenuGeral {
                     System.out.println("Opção inválida! Tente novamente.");
             }
 
-        } while (naoSair || opcao != "8"); 
+        } while (naoSair && opcao != "8"); 
     }
 }
