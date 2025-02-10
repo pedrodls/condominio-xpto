@@ -61,11 +61,13 @@ public class MenuGeral {
     public void renderizarMenu() throws RuntimeException, ParseException {
 
         boolean naoSair = true;
-        String opcao = new Menu(Constantes.CONDOMINIO_MENU, "Menu Geral").escolherOpcaoMenu();
+        
+        String opcao;
 
 
         do {
 
+            opcao = new Menu(Constantes.CONDOMINIO_MENU, "Menu Geral").escolherOpcaoMenu();
 
             switch (opcao) {
                 case "1": 
@@ -82,7 +84,7 @@ public class MenuGeral {
                     break;
                 case "5": 
                     AtualizarDespesasController.visualizar(condominio);
-                break;
+                    break;
                 case "6":
                     CalcularQuotasMensaisController.visualizar(condominio);
                     break;
