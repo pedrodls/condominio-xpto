@@ -10,6 +10,11 @@ public class Apartamento extends Fracao {
     private int numeroVarandas;
     private boolean terraco;
 
+    // Para criar um objecto Nulo
+    public Apartamento() {
+        super();
+    }
+
     public Apartamento(int area, String localizacao, Proprietario proprietario, TipoApartamento tipo,
             int numeroCasaBanhos, int numeroVarandas, boolean terraco) {
         super(area, localizacao, proprietario);
@@ -49,5 +54,16 @@ public class Apartamento extends Fracao {
 
     public void setTerraco(boolean terraco) {
         this.terraco = terraco;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\ttipoApartamento: " + this.tipo + "\n" +
+                "\tnumeroDeVarandas: " + this.numeroVarandas + "\n" +
+                "\tnumeroDeCasasDeBanho: " + this.numeroCasaBanhos + "\n" +
+                "\tComTerraço: " + this.terraco != null ? "Sim"
+                        : "Não" + "\n" +
+                                "}";
     }
 }

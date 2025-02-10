@@ -42,7 +42,7 @@ public class Constantes {
                         "Inserir Fração",
                         "Remover Fração",
                         "Listar  Frações",
-                        "Atualizar Fração",
+                        //"Atualizar Fração",
                         "Sair"
         };
 

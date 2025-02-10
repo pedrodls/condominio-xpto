@@ -5,18 +5,22 @@ import domain.proprietario.Proprietario;
 
 public class Loja extends Fracao {
 
-    public Loja(){}
+    // Para criar um objecto Nulo
+    public Loja() {
+        super();
+    }
+
     public Loja(int area, String localizacao, Proprietario proprietario) {
         super(area, localizacao, proprietario);
     }
 
     @Override
-    public double getQuotaMensal(double despesaGeral, double despesaComElevador){
+    public double getQuotaMensal(double despesaGeral, double despesaComElevador) {
         return despesaGeral * this.percentagemArea;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "}";
+        return super.toString() + " } ";
     }
 }
