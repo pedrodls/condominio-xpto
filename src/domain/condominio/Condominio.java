@@ -16,22 +16,25 @@ public class Condominio extends Entidade implements ICondominio {
     private String dataConstrucao;
     private List<Fracao> fracoes;
     private List<Proprietario> proprietarios;
+    private int numeroFracoes;
 
     public Condominio() {
-        this.fracoes = new ArrayList<>();
-        this.proprietarios = new ArrayList<>();
+        fracoes = new ArrayList<>();
+        proprietarios = new ArrayList<>();
+        areaTotal = 0.0;
+        numeroFracoes = 0;
     }
 
-    public Condominio(String morada, double despesaGeral, double despesaComElevador, String dataConstrucao,
-            double areaTotal, int numeroFracoes) {
+    public Condominio(String morada, double despesaGeral, double despesaComElevador, String dataConstrucao) {
 
         this.morada = morada;
         this.despesaGeral = despesaGeral;
         this.despesaComElevador = despesaComElevador;
         this.dataConstrucao = dataConstrucao;
-        this.fracoes = new ArrayList<>();
-        this.proprietarios = new ArrayList<>();
-        this.areaTotal = 0.0;
+        fracoes = new ArrayList<>();
+        proprietarios = new ArrayList<>();
+        areaTotal = 0.0;
+        numeroFracoes = 0;
     }
 
     public String getMorada() {
@@ -83,6 +86,8 @@ public class Condominio extends Entidade implements ICondominio {
         return null;
     }
 
+    
+
     public List<Fracao> getFracoes() {
         return this.fracoes;
     }
@@ -113,6 +118,7 @@ public class Condominio extends Entidade implements ICondominio {
             if (!this.validarExistenciaProprietario(fracao.getProprietario())) {
                 this.proprietarios.add(fracao.getProprietario());
             }
+            numeroFracoes++;
             return fracao;
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -246,4 +252,7 @@ public class Condominio extends Entidade implements ICondominio {
 
     }
 
+    public int getNumeroFracoes() {
+        return numeroFracoes;
+    }
 }
