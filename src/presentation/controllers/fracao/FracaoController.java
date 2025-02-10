@@ -4,6 +4,7 @@ import java.text.ParseException;
 
 import domain.condominio.Condominio;
 import presentation.Menu;
+import presentation.controllers.condominio.ListarFracoesController;
 import utils.Constantes;
 
 public class FracaoController {
@@ -16,19 +17,25 @@ public class FracaoController {
 
             do {
 
-                char opcao = new Menu(Constantes.MENU_FRACAO, "Menu Fração").escolherOpcaoMenu();
+                String opcao = new Menu(Constantes.MENU_FRACAO, "Menu Fração").escolherOpcaoMenu();
 
                 switch (opcao) {
-                    case '1':
+                    case "1":
                         VerFracaoController.visualizar(condominio);
                         break;
-                    case '2':
+                    case "2":
                         TipoFracaoController.visualizar(condominio);
                         break;
-                    case '3':
+                    case "3":
 
                         break;
-                    case '6':
+                    case "4":
+                        ListarFracoesController.visualizar(condominio);
+                        break;
+                    case "5":
+
+                        break;
+                    case "6":
                         naoSair = false;
                         break;
                     default:

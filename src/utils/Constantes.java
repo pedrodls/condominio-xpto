@@ -20,7 +20,6 @@ public class Constantes {
                                 // "Inserir fracção",
                                 // "Retirar fracção",
                                 //"Listar fracções" (ESTA COMO OPCAO ZERO NO MENU GERAL, DEPOIS DA OPCAO )
-                        "Proprietários",
                         "Atualizar condominio",
                         "Visualisar condominio",
                         "Visualisar os valores das despesas",
@@ -42,7 +41,7 @@ public class Constantes {
         public static final String[] MENU_FRACAO = new String[] {
                         "Ver Fração",
                         "Inserir Fração",
-                        "Remover Fração",
+                        "Retirar Fração",
                         "Listar  Frações",
                         "Atualizar Fração",
                         "Sair"

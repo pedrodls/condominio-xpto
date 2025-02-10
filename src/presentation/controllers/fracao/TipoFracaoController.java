@@ -16,23 +16,23 @@ public class TipoFracaoController {
 
             do {
 
-                char opcao = new Menu(Constantes.MENU_TIPO_FRACAO, "Informe o tipo de fracção a inserir")
+                String opcao = new Menu(Constantes.MENU_TIPO_FRACAO, "Informe o tipo de fracção a inserir")
                         .escolherOpcaoMenu();
 
                 switch (opcao) {
-                    case '1':
+                    case "1":
                         //CriarApartamentoController();
                         break;
-                    case '2':
+                    case "2":
                         CriarArrecadacaoController.criar(condominio);
                         break;
-                    case '3':
+                    case "3":
                         //CriarGaragemController();
                         break;
-                    case '4':
+                    case "4":
                         //CriarLojaController();
                         break;
-                    case '5':
+                    case "5":
                         naoSair = false;
                         break;
                     default:
