@@ -87,8 +87,13 @@ public class Condominio extends Entidade implements ICondominio {
         return this.fracoes;
     }
 
-    private boolean validarExistenciaProprietario(Proprietario proprietario) {
-        return this.proprietarios.indexOf(proprietario) > 0;
+    public boolean validarExistenciaProprietario(Proprietario proprietario) {
+        if (this.proprietarios != null)
+            for (Proprietario p : this.proprietarios)
+                if (p.equals(proprietario))
+                    return true;
+
+        return false;
     }
 
     private boolean validarEliminacaoProprietario(Proprietario proprietario) {
@@ -154,8 +159,8 @@ public class Condominio extends Entidade implements ICondominio {
     }
 
     public void listFracoes() {
-        if(fracoes != null){
-                System.out.println("----------Fracções que compõem o condomínio----------");
+        if (fracoes != null) {
+            System.out.println("----------Fracções que compõem o condomínio----------");
             System.out.println(" ");
 
             for (Fracao fracao : fracoes) {
@@ -163,8 +168,10 @@ public class Condominio extends Entidade implements ICondominio {
                 System.out.println(" ");
                 System.out.println(" ");
             }
-        } else { System.out.println("O condomínio ainda não possui fracções."); }
-        
+        } else {
+            System.out.println("O condomínio ainda não possui fracções.");
+        }
+
     }
 
     public void setPercentagemFracoes() throws RuntimeException {
@@ -217,26 +224,26 @@ public class Condominio extends Entidade implements ICondominio {
 
     @Override
     public String toString() {
-        if(fracoes != null){
+        if (fracoes != null) {
             return super.toString() +
-                "\tMorada: " + this.getMorada() + "\n" +
-                "\tDespesa geral: " + this.getDespesaGeral() + "\n" +
-                "\tDespesa com elevador: " + this.getDespesaComElevador() + "\n" +
-                "\tData de construção: " + this.getDataConstrucao() + "\n" +
-                "\tÁrea total: " + areaTotal + "\n" +
-                "\tNúmero de fracções: " + this.fracoes.size() + "\n" +
-                "}";
+                    "\tMorada: " + this.getMorada() + "\n" +
+                    "\tDespesa geral: " + this.getDespesaGeral() + "\n" +
+                    "\tDespesa com elevador: " + this.getDespesaComElevador() + "\n" +
+                    "\tData de construção: " + this.getDataConstrucao() + "\n" +
+                    "\tÁrea total: " + areaTotal + "\n" +
+                    "\tNúmero de fracções: " + this.fracoes.size() + "\n" +
+                    "}";
         } else {
             return super.toString() +
-                "\tMorada: " + this.getMorada() + "\n" +
-                "\tDespesa geral: " + this.getDespesaGeral() + "\n" +
-                "\tDespesa com elevador: " + this.getDespesaComElevador() + "\n" +
-                "\tData de construção: " + this.getDataConstrucao() + "\n" +
-                "\tÁrea total: " + areaTotal + "\n" +
-                "\tNúmero de fracções: 0" + "\n" +
-                "}";
+                    "\tMorada: " + this.getMorada() + "\n" +
+                    "\tDespesa geral: " + this.getDespesaGeral() + "\n" +
+                    "\tDespesa com elevador: " + this.getDespesaComElevador() + "\n" +
+                    "\tData de construção: " + this.getDataConstrucao() + "\n" +
+                    "\tÁrea total: " + areaTotal + "\n" +
+                    "\tNúmero de fracções: 0" + "\n" +
+                    "}";
         }
-        
+
     }
 
 }

@@ -25,15 +25,14 @@ public class CriarProprietarioUseCase {
       List<Proprietario> proprietarios = this.condominio.getProprietarios();
 
       this.proprietario.setId(proprietarios == null ? 1 : proprietarios.size() + 1);
-
       this.proprietario.setEmail(dados.nome);
       this.proprietario.setNome(dados.nome);
       this.proprietario.setMorada(dados.morada);
       this.proprietario.setTelefone(dados.telefone);
       this.proprietario.setTelemovel(dados.telemovel);
       this.proprietario.setDataNascimento(dados.dataNascimento);
-      
-      return this.proprietario;
+
+      return !condominio.validarExistenciaProprietario(this.proprietario) ? this.proprietario : null;
 
     } catch (Exception e) {
       throw new RuntimeException(e);

@@ -1,7 +1,8 @@
 package domain.proprietario;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
+
 import domain.helpers.Entidade;
 
 public class Proprietario extends Entidade implements IProprietario {
@@ -83,8 +84,7 @@ public class Proprietario extends Entidade implements IProprietario {
     @Override
     public String toString() {
 
-        return 
-                "\n\t\t{\n" +
+        return "\n\t\t{\n" +
                 "\t\tid: " + this.getId() + "\n" +
                 "\t\tnome: " + this.nome + "\n" +
                 "\t\tmorada: " + this.morada + "\n" +
@@ -93,5 +93,25 @@ public class Proprietario extends Entidade implements IProprietario {
                 "\t\temail: " + this.email + "\n" +
                 "\t\tdataNascimento: " + this.dataNascimento + "\n" +
                 "\t}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Proprietario that = (Proprietario) obj;
+        return Objects.equals(nome, that.nome) &&
+                Objects.equals(morada, that.morada) &&
+                Objects.equals(telefone, that.telefone) &&
+                Objects.equals(telemovel, that.telemovel) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(dataNascimento, that.dataNascimento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, morada, telefone, telemovel, email, dataNascimento);
     }
 }

@@ -15,7 +15,6 @@ public class CriarProprietarioController {
 
     public static Proprietario criar(Condominio condominio) throws RuntimeException, ParseException {
 
-
         try {
 
             Proprietario novoProprietario;
