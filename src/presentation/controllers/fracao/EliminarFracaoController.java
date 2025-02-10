@@ -14,6 +14,11 @@ public class EliminarFracaoController {
 
         try {
 
+            if (!(condominio.getAreaTotal() > 0)) {
+                System.out.println("Não existem frações disponíveis!");
+                return;
+            }
+            
             Scanner sc = new Scanner(System.in);
 
             if (!(condominio.getAreaTotal() > 0)) {
