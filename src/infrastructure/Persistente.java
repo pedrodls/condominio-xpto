@@ -14,7 +14,7 @@ public class Persistente<T extends Serializable> {
     private String nomeFicheiro;
 
     public Persistente() {
-        this.nomeFicheiro = Constantes.condominioFIle;
+        this.nomeFicheiro = Constantes.CONDOMINIO_FILE;
     }
 
     public void set(T dados) throws RuntimeException {

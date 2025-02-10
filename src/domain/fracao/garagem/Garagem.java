@@ -6,8 +6,9 @@ import domain.proprietario.Proprietario;
 public class Garagem extends Fracao {
 
     private int numeroViaturas;
-
     private boolean servicoDeLavagem;
+
+    final static String tipoFracao = "Garagem";
 
     public Garagem(int area, String localizacao, Proprietario proprietario, int numeroViaturas, boolean servicoDeLavagem) {
 
@@ -31,5 +32,14 @@ public class Garagem extends Fracao {
 
     public void setServicoDeLavagem(boolean servicoDeLavagem) {
         this.servicoDeLavagem = servicoDeLavagem;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+        "\tNumero de viaturas: " + numeroViaturas + "\n" +
+        "\tServiço de lavagem: " + servicoDeLavagem + "\n" +
+        "\tTipo de fracção : " + tipoFracao + "\n" +
+        "}";
     }
 }

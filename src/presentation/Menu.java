@@ -11,9 +11,9 @@ public class Menu {
         System.out.println("--" + descricao + "--");
     }
 
-    public char escolherOpcaoMenu() throws RuntimeException {
+    public String escolherOpcaoMenu() throws RuntimeException {
 
-        char opcao;
+        String opcao;
 
         Scanner sc = new Scanner(System.in);
 
@@ -21,9 +21,11 @@ public class Menu {
             System.out.println((i + 1) + " - " + menus[i]);
         }
 
-        System.out.print("Escolha uma opção: ");
+        System.out.print("\n Escolha uma opção: ");
 
-        opcao = sc.next().charAt(0);
+        opcao = sc.nextLine();
+
+        System.out.println(" ");
 
         
         return opcao;

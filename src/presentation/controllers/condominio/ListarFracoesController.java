@@ -3,14 +3,14 @@ package presentation.controllers.condominio;
 import domain.condominio.Condominio;
 import utils.PauseToRead;
 
-public class CalcularCotasMensaisController {
+public class ListarFracoesController {
 
     public static void visualizar(Condominio condominio) throws RuntimeException {
 
         try {
 
-            System.out.println("A soma das cotas mensais é igual a " + condominio.calculateSomaQuotas());
-           
+            condominio.listFracoes();
+
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         } finally {

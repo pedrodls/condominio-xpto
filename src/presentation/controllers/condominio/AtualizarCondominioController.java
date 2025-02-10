@@ -12,12 +12,29 @@ public class AtualizarCondominioController {
 
     private static String regex = "^([0-2][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
     private static Pattern pattern = Pattern.compile(regex);
+    private static char atualizar;
+
+    private static void validacao(String atributo){
+        Scanner sc = new Scanner(System.in);
+
+        do{
+            if(!(atualizar == 'S' || atualizar == 'N' || atualizar == 's' || atualizar == 'n')){
+                System.out.println("Opção inválida!");
+                System.out.println(" ");
+            }
+
+            System.out.print("Deseja atualizar " + atributo + "? (S | N): ");
+            atualizar = sc.next().charAt(0);
+        }while(!(atualizar == 'S' || atualizar == 'N' || atualizar == 's' || atualizar == 'n'));
+
+        
+        sc.nextLine(); // Limpar buffer
+    }
 
     public static Condominio atualizar(Condominio condominio) {
 
         try {
 
-            char atualizar;
             String opAtualizar = "Ss";
 
             System.out.println("\t-- Atualizando Condominio --\n");
@@ -28,9 +45,7 @@ public class AtualizarCondominioController {
             CondominioService condominioService = new CondominioService();
 
             // Atualizar Morada
-            System.out.print("Deseja atualizar Morada? (S | N): ");
-            atualizar = sc.next().charAt(0);
-            sc.nextLine(); // Limpar buffer
+            validacao("a morada");
 
             if (opAtualizar.contains(Character.toString(atualizar))) {
                 do {
@@ -42,9 +57,7 @@ public class AtualizarCondominioController {
             }
 
             // Atualizar Data de Construção
-            System.out.print("Deseja atualizar data de construção? (S | N): ");
-            atualizar = sc.next().charAt(0);
-            sc.nextLine(); // Limpar buffer
+            validacao("a data de construção");
 
             if (opAtualizar.contains(Character.toString(atualizar))) {
                 do {
@@ -62,9 +75,7 @@ public class AtualizarCondominioController {
             }
 
             // Atualizar Despesa Geral
-            System.out.print("Deseja atualizar o valor da despesa geral? (S | N): ");
-            atualizar = sc.next().charAt(0);
-            sc.nextLine(); // Limpar buffer
+            validacao("o valor da despesa geral");
 
             if (opAtualizar.contains(Character.toString(atualizar))) {
 
@@ -80,9 +91,7 @@ public class AtualizarCondominioController {
             }
 
             // Atualizar Despesa com Elevador
-            System.out.print("Deseja atualizar o valor da despesa com elevador? (S | N): ");
-            atualizar = sc.next().charAt(0);
-            sc.nextLine(); // Limpar buffer
+            validacao("o valor da despesa com o elevador");
 
             if (opAtualizar.contains(Character.toString(atualizar))) {
                 do {
