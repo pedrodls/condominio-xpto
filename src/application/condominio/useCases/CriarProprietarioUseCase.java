@@ -2,7 +2,6 @@ package application.condominio.useCases;
 
 import java.util.List;
 
-import application.condominio.CondominioDTO;
 import application.fracao.ProprietarioDTO;
 import domain.condominio.Condominio;
 import domain.proprietario.Proprietario;
@@ -27,6 +26,7 @@ public class CriarProprietarioUseCase {
 
       this.proprietario.setId(proprietarios == null ? 1 : proprietarios.size() + 1);
 
+      this.proprietario.setEmail(dados.nome);
       this.proprietario.setNome(dados.nome);
       this.proprietario.setMorada(dados.morada);
       this.proprietario.setTelefone(dados.telefone);

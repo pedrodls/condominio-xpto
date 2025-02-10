@@ -58,8 +58,10 @@ public class CriarProprietarioController {
             do {
                 System.out.printf("Email: ");
                 proprietarioDTO.email = sc.nextLine();
+
                 if (!UtilValidator.validarEmail(proprietarioDTO.email))
                     System.out.println("Email inválido!");
+                    
             } while (!UtilValidator.validarEmail(proprietarioDTO.email));
 
             do {

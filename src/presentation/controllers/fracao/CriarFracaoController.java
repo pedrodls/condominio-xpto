@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import application.fracao.CriarFracaoUseCase;
 import application.fracao.FracaoDTO;
-import application.fracao.FracaoService;
 import domain.condominio.Condominio;
 import domain.fracao.Fracao;
 import utils.PauseToRead;
