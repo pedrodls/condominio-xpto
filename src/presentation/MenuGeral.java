@@ -34,7 +34,7 @@ public class MenuGeral {
 
         do {
 
-            Menu opcoes = new Menu(Constantes.novoCondominioMenu, "Menu Inicial");
+            Menu opcoes = new Menu(Constantes.NOVO_CONDOMINIO_MENU, "Menu Inicial");
 
             opcao = opcoes.escolherOpcaoMenu();
 
@@ -58,7 +58,7 @@ public class MenuGeral {
     public void renderizarMenu() {
 
         boolean naoSair = true;
-        String opcao = new Menu(Constantes.condominioMenu, "Menu Geral").escolherOpcaoMenu();
+        String opcao = new Menu(Constantes.CONDOMINIO_MENU, "Menu Geral").escolherOpcaoMenu();
 
 
         do {
@@ -84,7 +84,7 @@ public class MenuGeral {
                     AtualizarDespesasController.visualizar(condominio);
                 break;
                 case "7":
-                    CalcularCotasMensaisController.visualizar(condominio);
+                    CalcularQuotasMensaisController.visualizar(condominio);
                     break;
                 case "8":
                     VerificarPercentagenFracoesController.visualizar(condominio);

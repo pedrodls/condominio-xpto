@@ -15,7 +15,7 @@ public class VisualizarDespesasController {
 
             do {
 
-                String opcao = new Menu(Constantes.despesaMenu, "Visualização das Despesas").escolherOpcaoMenu();
+                String opcao = new Menu(Constantes.DESPESA_MENU, "Visualização das Despesas").escolherOpcaoMenu();
 
                 switch (opcao) {
                     case "1":

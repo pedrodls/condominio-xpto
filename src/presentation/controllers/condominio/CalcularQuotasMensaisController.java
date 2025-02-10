@@ -3,7 +3,7 @@ package presentation.controllers.condominio;
 import domain.condominio.Condominio;
 import utils.PauseToRead;
 
-public class CalcularCotasMensaisController {
+public class CalcularQuotasMensaisController {
 
     public static void visualizar(Condominio condominio) throws RuntimeException {
 

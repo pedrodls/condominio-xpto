@@ -20,7 +20,7 @@ public class AtualizarDespesasController {
 
             do {
 
-                String opcao = new Menu(Constantes.despesaMenu, "Actualização das Despesas").escolherOpcaoMenu();
+                String opcao = new Menu(Constantes.DESPESA_MENU, "Actualização das Despesas").escolherOpcaoMenu();
                     
 
                 switch (opcao) {
