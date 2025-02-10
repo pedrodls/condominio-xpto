@@ -48,4 +48,24 @@ public class Garagem extends Fracao {
         "}";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        boolean temp = super.equals(obj);
+
+        if (temp && obj instanceof Garagem){
+            Garagem other = (Garagem) obj;
+
+            if (
+                numeroViaturas != other.getNumeroViaturas() &&
+                servicoDeLavagem != other.getServicoDeLavagem()
+                )
+                return false;
+            return true;
+        }
+
+        return false;  
+        
+    }
+
 }

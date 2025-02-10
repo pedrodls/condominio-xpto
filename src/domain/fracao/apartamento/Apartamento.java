@@ -68,4 +68,26 @@ public class Apartamento extends Fracao {
         "\tTipo de fracção: " + tipoFracao + "\n" +
         "}";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        boolean temp = super.equals(obj);
+
+        if (temp && obj instanceof Apartamento){
+            Apartamento other = (Apartamento) obj;
+
+            if (
+                tipo != other.tipo &&
+                numeroCasaBanhos != other.getNumeroCasaBanhos() &&
+                numeroVarandas != other.getNumeroVarandas() &&
+                terraco != other.isTerraco()
+                )
+                return false;
+            return true;
+        }
+
+        return false;  
+        
+    }
 }
