@@ -31,10 +31,11 @@ public class CriarGaragemController {
             garagemDTO.proprietario = fracao.getProprietario();
 
             do {
-                System.out.println("Numero de Varandas: ");
+                System.out.println("Numero de Viaturas: ");
                 garagemDTO.numeroViaturas = sc.nextInt();
-                sc.nextLine();
             } while (garagemDTO.numeroViaturas > 0);
+
+            sc.nextLine();
 
             do {
 
