@@ -64,14 +64,14 @@ public class CriarProprietarioController {
             } while (!UtilValidator.validarEmail(proprietarioDTO.email));
 
             do {
-                System.out.printf("Data de nascimento(DD/MM/YYYY): ");
+                System.out.printf("Data de nascimento(DD/MM/AAAA): ");
                 String auxDataString = sc.nextLine();
 
                 if (UtilDate.validarData(auxDataString)) {
                     proprietarioDTO.dataNascimento = UtilDate.stringToDate(auxDataString);
                     break;
                 } else {
-                    System.out.println("Formato inválido! Use DD/MM/YYYY.");
+                    System.out.println("Formato inválido! Use DD/MM/AAAA.");
                 }
             } while (true);
 

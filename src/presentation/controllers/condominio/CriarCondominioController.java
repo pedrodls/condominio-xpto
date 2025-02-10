@@ -26,13 +26,13 @@ public class CriarCondominioController {
             } while (condominioDTO.morada.length() < 2);
 
             do {
-                System.out.print("Insira a data de construção (DD/MM/YYYY): ");
+                System.out.print("Insira a data de construção (DD/MM/AAAA): ");
                 condominioDTO.dataConstrucao = sc.nextLine();
 
                 if (UtilDate.validarData(condominioDTO.dataConstrucao)) {
                     break;
                 } else {
-                    System.out.println("Formato inválido! Use DD/MM/YYYY.");
+                    System.out.println("Formato inválido! Use DD/MM/AAAA.");
                 }
             } while (true);
 
