@@ -9,6 +9,11 @@ public class ListarFracoesController {
 
         try {
 
+            if (!(condominio.getAreaTotal() > 0)) {
+                System.out.println("Não existem frações disponíveis!");
+                return;
+            }
+            
             condominio.listFracoes();
 
         } catch (RuntimeException e) {

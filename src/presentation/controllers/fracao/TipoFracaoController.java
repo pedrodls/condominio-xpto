@@ -14,6 +14,10 @@ public class TipoFracaoController {
 
             boolean naoSair = true;
 
+            if (!(condominio.getAreaTotal() > 0)) {
+                System.out.println("Não existem frações disponíveis!");
+                return;
+            }
             do {
 
                 String opcao = new Menu(Constantes.MENU_TIPO_FRACAO, "Informe o tipo de fracção a inserir")
