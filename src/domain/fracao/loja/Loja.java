@@ -5,6 +5,8 @@ import domain.proprietario.Proprietario;
 
 public class Loja extends Fracao {
 
+    final static String tipoFracao = "Loja"; 
+
     // Para criar um objecto Nulo
     public Loja() {
         super();
@@ -21,6 +23,8 @@ public class Loja extends Fracao {
 
     @Override
     public String toString() {
-        return super.toString() + " } ";
+        return super.toString() +
+        "\tTipo de fracção :" + tipoFracao + "\n" +
+        "}";
     }
 }

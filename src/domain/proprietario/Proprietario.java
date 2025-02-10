@@ -84,7 +84,8 @@ public class Proprietario extends Entidade implements IProprietario {
     public String toString() {
 
         return 
-                "\n\t\tid: " + this.getId() + "\n" +
+                "\n\t\t{\n" +
+                "\t\tid: " + this.getId() + "\n" +
                 "\t\tnome: " + this.nome + "\n" +
                 "\t\tmorada: " + this.morada + "\n" +
                 "\t\ttelefone: " + this.telefone + "\n" +

@@ -29,7 +29,7 @@ public class CriarFracaoController {
             } while (fracaoDTO.localizacao.length() < 2);
 
             do {
-                System.out.printf("Insira a área(valor em metros quadrados): ");
+                System.out.printf("Insira a área(valor maior que zero): ");
                 fracaoDTO.area = sc.nextDouble();
                 sc.nextLine();
             } while (fracaoDTO.area <= 0);

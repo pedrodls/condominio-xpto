@@ -6,6 +6,7 @@ import domain.proprietario.Proprietario;
 public class Arrecadacao extends Fracao {
 
     private boolean portaBlindada;
+    final static String tipoFracao = "Arrecadação";
 
     //Para criar um objecto Nulo
     public Arrecadacao() {
@@ -20,7 +21,7 @@ public class Arrecadacao extends Fracao {
 
     }
 
-    public boolean getPortaBlindada() {
+    public boolean hasPortaBlindada() {
         return portaBlindada;
     }
 
@@ -30,8 +31,15 @@ public class Arrecadacao extends Fracao {
 
     @Override
     public String toString() {
+        String temp;
+
+        if(hasPortaBlindada() == true){
+            temp = "Sim";
+        } else { temp = "Não"; }
+
         return super.toString() +
-                "\tportaBlindada: " + this.portaBlindada + "\n" +
+                "\tPossui porta blindada: " + temp + "\n" +
+                "\tTipo de fracção : " + tipoFracao + "\n" +
                 "}";
     }
 

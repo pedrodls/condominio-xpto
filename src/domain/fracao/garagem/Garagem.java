@@ -6,8 +6,9 @@ import domain.proprietario.Proprietario;
 public class Garagem extends Fracao {
 
     private int numeroViaturas;
-
     private boolean servicoDeLavagem;
+
+    final static String tipoFracao = "Garagem";
 
     // Para criar um objecto Nulo
     public Garagem() {
@@ -38,13 +39,13 @@ public class Garagem extends Fracao {
     public void setServicoDeLavagem(boolean servicoDeLavagem) {
         this.servicoDeLavagem = servicoDeLavagem;
     }
-
     @Override
     public String toString() {
         return super.toString() +
-                "\n\tnumeroDeViaturas: " + this.numeroViaturas + "\n" +
-                "\tserviçoDeLavagem: " + this.servicoDeLavagem != null ? "Sim"
-                        : "Não" + "\n" +
-                                "}";
+        "\tNúmero de viaturas: " + numeroViaturas + "\n" +
+        "\tServiço de lavagem: " + servicoDeLavagem + "\n" +
+        "\tTipo de fracção : " + tipoFracao + "\n" +
+        "}";
     }
+
 }

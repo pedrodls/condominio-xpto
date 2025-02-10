@@ -10,6 +10,8 @@ public class Apartamento extends Fracao {
     private int numeroVarandas;
     private boolean terraco;
 
+    final static String tipoFracao = "Apartamento";
+
     // Para criar um objecto Nulo
     public Apartamento() {
         super();
@@ -59,11 +61,11 @@ public class Apartamento extends Fracao {
     @Override
     public String toString() {
         return super.toString() +
-                "\ttipoApartamento: " + this.tipo + "\n" +
-                "\tnumeroDeVarandas: " + this.numeroVarandas + "\n" +
-                "\tnumeroDeCasasDeBanho: " + this.numeroCasaBanhos + "\n" +
-                "\tComTerraço: " + this.terraco != null ? "Sim"
-                        : "Não" + "\n" +
-                                "}";
+        "\tTipo de apartamento: " + tipo + "\n" +
+        "\tNúmero de casas de banho: " + numeroCasaBanhos + "\n" +
+        "\tNúmero de varandas: " + numeroVarandas + "\n" +
+        "\tTerraço: " + terraco + "\n" +
+        "\tTipo de fracção: " + tipoFracao + "\n" +
+        "}";
     }
 }
