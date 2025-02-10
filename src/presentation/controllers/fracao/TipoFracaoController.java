@@ -18,6 +18,7 @@ public class TipoFracaoController {
                 System.out.println("Não existem frações disponíveis!");
                 return;
             }
+            
             do {
 
                 String opcao = new Menu(Constantes.MENU_TIPO_FRACAO, "Informe o tipo de fracção a inserir")

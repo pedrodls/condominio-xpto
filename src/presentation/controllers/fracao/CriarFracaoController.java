@@ -39,16 +39,24 @@ public class CriarFracaoController {
                 char opcao = sc.nextLine().charAt(0);
 
                 if (opcao == '1') {
-                    System.out.printf("Informe o id do proprietário: ");
-                    int id = sc.nextInt();
-                    fracaoDTO.proprietario = condominio.getProprietario(id);
-
-                    sc.nextLine(); // Limpar buffer
-
-                    if (fracaoDTO.proprietario == null) {
-                        System.out.println("Proprietário não encontrado!");
+                    if (!(condominio.getProprietarios() == null)) {
+                        System.out.println("Não existem proprietários disponíveis!");
                         PauseToRead.pause();
+
+                    } else {
+                        System.out.printf("Informe o id do proprietário: ");
+                        int id = sc.nextInt();
+                        fracaoDTO.proprietario = condominio.getProprietario(id);
+
+                        sc.nextLine(); // Limpar buffer
+
+                        if (fracaoDTO.proprietario == null) {
+                            System.out.println("Proprietário não encontrado!");
+                            PauseToRead.pause();
+                        }
+
                     }
+
                 } else if (opcao == '2') {
                     fracaoDTO.proprietario = CriarProprietarioController.criar(condominio);
                 } else {
