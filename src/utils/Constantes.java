@@ -34,6 +34,7 @@ public class Constantes {
         public static final String[] despesaMenu = new String[] {
                         "Despesa Geral",
                         "Despesa com o elevador",
+                        "Ambas",
                         "Sair"
         };
 }
