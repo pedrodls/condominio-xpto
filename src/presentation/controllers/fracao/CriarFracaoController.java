@@ -38,7 +38,7 @@ public class CriarFracaoController {
                 char opcao = sc.nextLine().charAt(0);
 
                 if (opcao == '1') {
-                    if (!(condominio.getProprietarios() == null)) {
+                    if (condominio.getProprietarios() == null) {
                         System.out.println("Não existem proprietários disponíveis!");
                         PauseToRead.pause();
 

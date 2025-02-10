@@ -25,7 +25,7 @@ public class CriarProprietarioUseCase {
       List<Proprietario> proprietarios = this.condominio.getProprietarios();
 
       this.proprietario.setId(proprietarios == null ? 1 : proprietarios.size() + 1);
-      this.proprietario.setEmail(dados.nome);
+      this.proprietario.setEmail(dados.email);
       this.proprietario.setNome(dados.nome);
       this.proprietario.setMorada(dados.morada);
       this.proprietario.setTelefone(dados.telefone);
